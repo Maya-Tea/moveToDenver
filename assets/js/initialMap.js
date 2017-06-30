@@ -1,12 +1,12 @@
 
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyC99Z9-GcrrRun9oInxLQfMetAvSpA7M30",
-    authDomain: "movetodenver-ec302.firebaseapp.com",
-    databaseURL: "https://movetodenver-ec302.firebaseio.com",
-    projectId: "movetodenver-ec302",
-    storageBucket: "",
-    messagingSenderId: "772964444237"
+    apiKey: "AIzaSyBBoyZvc0BR5QIoIoBGD7wepn5wHsZHiNs",
+  authDomain: "cool-f0a13.firebaseapp.com",
+  databaseURL: "https://cool-f0a13.firebaseio.com",
+  projectId: "cool-f0a13",
+  storageBucket: "cool-f0a13.appspot.com",
+  messagingSenderId: "633106733016"
   };
   firebase.initializeApp(config);
 
@@ -220,7 +220,53 @@
   }
 
 
+function facebookSignin() {
+   firebase.auth().signInWithPopup(provider)
+   
+   .then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+    
+      console.log(token)
+      console.log(user)
+   }).catch(function(error) {
+      console.log(error.code);
+      console.log(error.message);
+   });
+}
 
+function facebookSignout() {
+   firebase.auth().signOut()
+   
+   .then(function() {
+      console.log('Signout successful!')
+   }, function(error) {
+      console.log('Signout failed')
+   });
+}
+
+   $(document).ready(function() {FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+})});
+     // FB.login() 
+    // console.log(response);
+
+    // /w/api.php?action=query&format=json&prop=info&titles=Albert+Einstein
+ 
+    var queryURL = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=Denver";
+
+        $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).done(function(response) {
+      //will need to create var or method to dynamically pull page id, this was just to test API
+        console.log(response.query.pages[8522].extract);
+        //can put stringify into the .html or .text
+        JSON.stringify({response});
+        // $("#neighborhoodResults").text(response.query.pages[8522].extract);
+        $("#neighborhoodResults").append(response.query.pages[8522].extract);
+        
+    })
 
 
 
