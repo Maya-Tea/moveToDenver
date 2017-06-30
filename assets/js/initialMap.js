@@ -176,27 +176,20 @@
   }
 
 
-  function addListenersOnRectangleClick(objectRect, rectangle) {
+ 
+    function addListenersOnRectangleClick(objectRect, rectangle) {
     google.maps.event.addListener(rectangle, 'click', function (event) {
       var lat = event.latLng.lat();
       var long = event.latLng.lng();
-      zoomNeighborhoodMap(lat,long);
-      var overlayOpts3 = {opacity:1 } ;
-      // for (var i=0; i<neighborhoods.length;i++){
-      //   neighborhoodOverlayShape = new google.maps.GroundOverlay(
-      //     'assets/images/'+objectRect.name+'.png',
-      //     imageBounds2, overlayOpts2);
-      //   //neighborhoodOverlayShape.setOpacity(.3);
-      //   neighborhoodOverlayShape.setMap(map2);
-      // }
-   //    neighborhoodOverlay4 = new google.maps.GroundOverlay(
-   //  'assets/images/neighborhood3.png',
-   //  imageBounds2, overlayOpts3);
-   // neighborhoodOverlay4.setMap(map2);
-
-   neighborhoodOverlay3.setMap(map2);
+      
+    localStorage.setItem("neighborhood", objectRect.name);
+    localStorage.setItem("lat",JSON.stringify(lat));
+    localStorage.setItem("long",JSON.stringify(long));
+    window.location.href="neighborhood.html";
     }); 
-  }
+    
+  } 
+  
   function addListenersOnRectangleOut(objectRect, rectangle) {
     google.maps.event.addListener(rectangle, 'mouseout', function (event) {
       $("#myModal").css("display", "none");
