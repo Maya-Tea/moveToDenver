@@ -60,7 +60,7 @@ function xmlToJson(xml) {
 };
 // sample  url code "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz194ui711ssr_64j9s&address=2114+Bigelow+Ave&citystatezip=Seattle+Washington"
 // adderss need to be in url format example ("2114+bigelow+ave") same with city state ()
-function ZillowAPI () {
+function ZillowAPI (id) {
     console.log('in xizilloe api');
         // var adress = ("&address=" + address);
     // var adressCity = ("&citystatezip=" + city + "+" + state);
@@ -78,9 +78,18 @@ function ZillowAPI () {
         console.log("yes");
         var jsonObj = xmlToJson(responce);
         var object = jsonObj["RegionChildren:regionchildren"].response.list.region;
+        
+        var name = object[id].name["#text"] ;
+        var averagePrice = object[id].zindex["#text"] ;
+        var latitude = object[id].latitude["#text"] ;
+        var longitude = object[id].longitude["#text"] ;
         // var jsonObj = xmlToJson(responce);
         // var object = xmlToJson(responce);
         console.log(object);
+        console.log(name);
+        console.log(averagePrice);
+        console.log(latitude);
+        console.log(longitude);
         // var neighborhoods =[];
     
         
@@ -92,4 +101,4 @@ function ZillowAPI () {
         console.log('err', err);
     });
 }
-ZillowAPI();
+ZillowAPI(19);

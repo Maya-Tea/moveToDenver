@@ -15,7 +15,7 @@
 
    var coorObjectArray =[];
 
-
+ 
 
    var modal = document.getElementById('myModal');
 
@@ -28,7 +28,27 @@
 
    var span = document.getElementsByClassName("close")[0];
 
-    rmv_add_Overlay.onclick = function() {
+    
+   var neighborhoods;
+   var neighborhoodArray=[];
+   var apiKey="AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo";
+   var neighborhoodOverlay;
+   var neighborhoodOverlay2;
+   var neighborhoodOverlay3;
+   var neighborhoodOverlayShape;
+   
+   var imageBounds = {north: 39.814, south: 39.603, east: -104.7305, west: -105.08 };
+
+  var imageBounds2 = {north: 39.825,south: 39.6055,east: -104.7215,west: -105.128 };
+
+    var overlayOpts = {opacity:0.4 } ;
+    var overlayOpts2 = {opacity:0.8 } ;
+
+   var map
+   var denver = {lat: 39.719, lng: -104.94140625};
+   var infowindow;
+
+   rmv_add_Overlay.onclick = function() {
       if(!rmvClicked){
      neighborhoodOverlay3.setMap(null);
      rmv_add_Overlay.innerHTML="Add Overlay";
@@ -49,23 +69,6 @@
     modal.style.display = "none";
   }
 
-   var neighborhoods;
-   var geoCodingAPI= "AIzaSyBaw-4l7qS4b_L7kXhuHViE2smEu1k34Dw";
-   var apiKey="AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo";
-   var neighborhoodOverlay;
-   var neighborhoodOverlay2;
-   var neighborhoodOverlay3;
-   var neighborhoodOverlayShape;
-   
-   var imageBounds = {north: 39.814, south: 39.603, east: -104.7305, west: -105.08 };
-
-  var imageBounds2 = {north: 39.825,south: 39.6055,east: -104.7215,west: -105.128 };
-
-    var overlayOpts = {opacity:0.4 } ;
-    var overlayOpts2 = {opacity:0.8 } ;
-
-   var map
-
 
 
    neighborhoodCoordinates();
@@ -74,23 +77,80 @@
    function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
-      center: {lat: 39.719, lng: -104.94140625}
+      center: denver
       
     });
 
     makeClickableNeighborhoods();
     makeNeighborhoodOverlays();
     addOverlayCoordinateListener();
+
+    infowindow = new google.maps.InfoWindow();
+    //findPlaces(denver, "restaurant");
     
   }
 
-  function zoomNeighborhoodMap(lat, long) {
-     map2 = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: {lat: lat, lng: long}
+  function findPlaces(coor, type){
+  var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+      location: coor,
+      radius: 1609,//meters in mile
+      rankBy: google.maps.places.RankBy.PROMINENCE,
+      //rankBy: google.maps.places.RankBy.DISTANCE,
+      type: [type]
+    }, usePlaceInfo);
+  }
+
+  
+
+  function usePlaceInfo(results, status, pagination) {
+     if (status === google.maps.places.PlacesServiceStatus.OK) {
       
+      var numBusinesses=Object.keys(results).length;
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+      pagination.nextPage();
+      // for (var i = 0; i < results.length; i++) {
+      //   createMarker(results[i]);
+      // }
+      //pagination.nextPage();
+      // for (var i = 0; i < results.length; i++) {
+      //   createMarker(results[i]);
+      // }
+
+      console.log(results.length);
+    }
+  }
+
+  function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
     });
-    
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
+  }
+  var superObject=[];
+  function makeObject(coorArr,neighArr,avePriceArr){
+        //console.log(coorArr);
+        //console.log(neighArr);
+        //console.log(avePriceArr);
+        console.log(coorArr[1].lat);
+        console.log(coorArr[1].lng);
+        
+        findPlaces(coorArr[9],"restaurant" );
+
+        //Push more items into superObject as needed-work needs to be done to get a number of business
+        for(var i=0; i<neighArr.length; i++){
+          superObject.push({name:neighArr[i] , coor:coorArr[i], home_price:avePriceArr[i]});
+        }
+        console.log(superObject);
+        //}
   }
 
   function addOverlayCoordinateListener(){
@@ -133,32 +193,7 @@
    neighborhoodOverlay3.setMap(map);
  }
 
- function makeClickableNeighborhoods(){
-  var rectangle;
-  for(var i=0; i<coorObjectArray.length; i++){
-    rectangle = new google.maps.Rectangle({
-      //strokeColor: '#FF0000',
-      strokeOpacity: 0,
-      //strokeWeight: 2,
-      //fillColor: '#FF0000',
-      fillOpacity: 0,
-      map: map,
-      bounds: {
-        north: coorObjectArray[i].north,
-        west:  coorObjectArray[i].west,
-        south: coorObjectArray[i].south,
-        east: coorObjectArray[i].east
-      }
-  
-      });
 
-    rectangle.setMap(map);
-    addListenersOnRectangleOver(coorObjectArray[i],rectangle);
-    
-    addListenersOnRectangleOut(coorObjectArray[i],rectangle);
-    addListenersOnRectangleClick(coorObjectArray[i],rectangle);
-    }
-  }
 
 
   
@@ -212,6 +247,33 @@
     console.log(coorObjectArray);
   }
 
+  function makeClickableNeighborhoods(){
+  var rectangle;
+  for(var i=0; i<coorObjectArray.length; i++){
+    rectangle = new google.maps.Rectangle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0,
+      map: map,
+      bounds: {
+        north: coorObjectArray[i].north,
+        west:  coorObjectArray[i].west,
+        south: coorObjectArray[i].south,
+        east: coorObjectArray[i].east
+      }
+  
+      });
+
+    rectangle.setMap(map);
+    addListenersOnRectangleOver(coorObjectArray[i],rectangle);
+    
+    addListenersOnRectangleOut(coorObjectArray[i],rectangle);
+    addListenersOnRectangleClick(coorObjectArray[i],rectangle);
+    }
+  }
+
 
 function facebookSignin() {
    firebase.auth().signInWithPopup(provider)
@@ -248,7 +310,7 @@ function facebookSignout() {
  
     var queryURL = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=Denver";
 
-        $.ajax({
+      $.ajax({
       url: queryURL,
       method: "GET"
     }).done(function(response) {
@@ -262,5 +324,110 @@ function facebookSignout() {
     })
 
 
+// Changes XML to JSON
+function xmlToJson(xml) {
+    
+    // Create the return object
+    var obj = {};
+    if (xml.nodeType == 1) { // element
+        // do attributes
+        if (xml.attributes.length > 0) {
+        obj["@attributes"] = {};
+            for (var j = 0; j < xml.attributes.length; j++) {
+                var attribute = xml.attributes.item(j);
+                obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+            }
+        }
+    } else if (xml.nodeType == 3) { // text
+        obj = xml.nodeValue;
+    }
+// do children
+    if (xml.hasChildNodes()) {
+        for(var i = 0; i < xml.childNodes.length; i++) {
+            var item = xml.childNodes.item(i);
+            var nodeName = item.nodeName;
+            if (typeof(obj[nodeName]) == "undefined") {
+                obj[nodeName] = xmlToJson(item);
+            } else {
+                if (typeof(obj[nodeName].push) == "undefined") {
+                    var old = obj[nodeName];
+                    obj[nodeName] = [];
+                    obj[nodeName].push(old);
+                }
+                obj[nodeName].push(xmlToJson(item));
+            }
+        }
+    }
+    return obj;
+};
+// sample  url code "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz194ui711ssr_64j9s&address=2114+Bigelow+Ave&citystatezip=Seattle+Washington"
+// adderss need to be in url format example ("2114+bigelow+ave") same with city state ()
+function ZillowAPI () {
+    console.log('in xizilloe api');
+        // var adress = ("&address=" + address);
+    // var adressCity = ("&citystatezip=" + city + "+" + state);
+    var apiKey = "X1-ZWz194ui711ssr_64j9s";
+    // var queryURL = ("http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + key + adress + adressCity);
+    // regional url gives out 1.) average house price 2.)neighborhood link 3.)latitude&longitude 4.)
+    var regionURL = ("http://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=" + apiKey + "&state=Co&city=denver&childtype=neighborhood");
+    
+    
+    $.ajax({
+        
+        url: regionURL,
+        method: "GET"
+    }).done(function(response){
+        console.log("yes");
+        var jsonObj = xmlToJson(response);
+        var object = jsonObj["RegionChildren:regionchildren"].response.list.region;
+
+        // var name = object[id].name["#text"] ;
+        //var averagePrice = object[id].zindex["#text"] ;
+        // var latitude = object[id].latitude["#text"] ;
+        // var longitude = object[id].longitude["#text"] ;
+        //console.log(Object.keys(object).length);
+        console.log(object.length);
+        // var jsonObj = xmlToJson(responce);
+        // var object = xmlToJson(responce);
+        console.log(object);
+        //console.log(name);
+        //console.log(averagePrice);
+        //console.log(latitude);
+        //console.log(longitude);
+        // var neighborhoods =[];
+        var coordinateArray=[];
+        var neighborhoodNameArray=[];
+        var averageHousePriceArray=[];
+        for(var i=0; i<object.length; i++){
+          var name = object[i].name["#text"] ;
+      
+          var latitude = parseFloat(object[i].latitude["#text"]) ;
+          var longitude = parseFloat(object[i].longitude["#text"]) ;
+          
+          neighborhoodNameArray.push(name);
+         
+          coordinateArray.push({lat:latitude , lng:longitude})
+          if (object[i].zindex != undefined ){
+          var averagePrice = parseInt(object[i].zindex["#text"]) ;
+          
+          averageHousePriceArray.push(averagePrice);
+          }
+          else{
+          averageHousePriceArray.push("No Data")
+          }
+ 
+        }
 
     
+        makeObject(coordinateArray,neighborhoodNameArray,averageHousePriceArray);
+        // object = JSON.parse(object);
+        // console.log('this is json', object);
+        // $("#data").html(object);
+        
+    }).fail((err) => {
+        console.log('err', err);
+    });
+}
+ZillowAPI();
+    
+ 
