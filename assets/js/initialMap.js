@@ -209,6 +209,37 @@ function makeHeatMap(points){
        
 
     }
+
+    function hipsterIndex () {
+     var hipsterScore = 0;
+     console.log("hipster!!!");
+    for (i=0; i < 78; i++) {
+       
+       var bars = massiveObject[i].barCount;
+       var restaurants = massiveObject[i].restaurantCount;
+       var averagePrice = massiveObject[i].zindex;
+       var breweries =  massiveObject[i].brewerieCount;
+       var pricepoint = (averagePrice-300000);
+       var foodBar = (bars + restaurants);
+       // console.log(bars);
+        if (breweries > 0) {
+            hipsterScore = 3;
+        
+        } else if (breweries > 5) {
+            hipsterScore = 5;
+            if (pricepoint > 0) {
+                hipsterScore = hipsterScore - (pricepoint/100000)
+            }
+        } else {
+            hipsterScore = (foodBar/15);
+        }
+        massiveObject[i].hipsterIndex = hipsterScore;
+        
+     // console.log("new" + massiveObject);
+    }
+     console.log(massiveObject)
+}
+hipsterIndex();
   
 
   function dynamicSort(property) {
