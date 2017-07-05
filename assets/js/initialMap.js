@@ -13,29 +13,29 @@
   var database = firebase.database();
    // var coorRef = firebase.database().ref("coor");
 
-   var coorObjectArray =[];
 
- 
+   var loadingGif=$("<img src='assets/images/loading.gif' id='loadingGif' class='loading'>");
+   loadingGif.css('position','absolute');
+   loadingGif.css('top','0');
+
+  var biggestObject=[];
 
    var modal = document.getElementById('myModal');
-
-   
    var rmv_add_Overlay = document.getElementById("removeOverlayButton");
-
    var restore=document.getElementById("restoreMap");
-   var rmvClicked=false;
-   
-
    var span = document.getElementsByClassName("close")[0];
+ 
+    var pointsHeatMap=[];
+  
+   var pointsHeatMap=[];
+  var heatmap;
 
-    
-   var neighborhoods;
-   var neighborhoodArray=[];
+
    var apiKey="AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo";
    var neighborhoodOverlay;
    var neighborhoodOverlay2;
    var neighborhoodOverlay3;
-   var neighborhoodOverlayShape;
+
    
    var imageBounds = {north: 39.814, south: 39.603, east: -104.7305, west: -105.08 };
 
@@ -44,10 +44,11 @@
     var overlayOpts = {opacity:0.4 } ;
     var overlayOpts2 = {opacity:0.8 } ;
 
-   var map
+   var map;
    var denver = {lat: 39.719, lng: -104.94140625};
-   var infowindow;
-
+  
+   var heatmap;
+  var rmvClicked=false;
    rmv_add_Overlay.onclick = function() {
       if(!rmvClicked){
      neighborhoodOverlay3.setMap(null);
@@ -70,10 +71,6 @@
   }
 
 
-
-   neighborhoodCoordinates();
-
-
    function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
@@ -81,97 +78,155 @@
       
     });
 
-    makeClickableNeighborhoods();
+   // makeClickableNeighborhoods();
     makeNeighborhoodOverlays();
-    addOverlayCoordinateListener();
-
-    infowindow = new google.maps.InfoWindow();
-    //findPlaces(denver, "restaurant");
-    
-  }
-
-  function findPlaces(coor, type){
-  var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-      location: coor,
-      radius: 1609,//meters in mile
-      rankBy: google.maps.places.RankBy.PROMINENCE,
-      //rankBy: google.maps.places.RankBy.DISTANCE,
-      type: [type]
-    }, usePlaceInfo);
-  }
-
+    //addOverlayCoordinateListener();
+    ZillowAPI();
   
 
-  function usePlaceInfo(results, status, pagination) {
-     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      
-      var numBusinesses=Object.keys(results).length;
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
-      pagination.nextPage();
-      // for (var i = 0; i < results.length; i++) {
-      //   createMarker(results[i]);
-      // }
-      //pagination.nextPage();
-      // for (var i = 0; i < results.length; i++) {
-      //   createMarker(results[i]);
-      // }
-
-      console.log(results.length);
-    }
+    
   }
+  //var heatOn=false;
+ 
+  var heatClickedOnce=false;
 
-  function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location
-    });
+  function toggleHeatmap() {
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
-    });
+    if(!heatClickedOnce){
+    
+    findPlacesRadar("brewery");
+    findPlacesRadar("distillery");
+    findPlacesRadar("used bookstore");
+    findPlacesRadar("record store");
+    findPlacesRadar("bike shop");
+    findPlacesRadar("coffee shop");
+    findPlacesRadar("vintage");
+
+    $("#hipHeatMapButton").text("Creating Heatmap");
+    $('#mapDiv').append(loadingGif);
+    heatClickedOnce=true;
+    //heatOn=true;
+
+    setTimeout(function(){
+      loadingGif.remove();
+      $("#hipHeatMapButton").text("Toggle Hipster Heatmap");
+      console.log(pointsHeatMap);
+      makeHeatMap(pointsHeatMap);
+    },4000)
+    
+
   }
+  else{
+   heatmap.setMap(heatmap.getMap() ? null : map);
+  //$("#hipHeatMapButton").text("Turn On Hipster Heatmap");
+    //  else if(heatOn){
+    //  heatmap.setMap(null);
+    //  $("#heatmapButton").html("Add Hipster HeatMap");
+    //  heatOn=false;
+    // }
+
+  }
+}
+
+
+
+
+  function findPlacesRadar(keyword) {
+    var request = {
+      bounds: map.getBounds(),
+      keyword: keyword
+    };
+    service = new google.maps.places.PlacesService(map);
+  //service.radarSearch(request, usePlaceInfoRadar);
+  service.radarSearch(request, usePlaceInfoRadar);
+  
+}
+
+function usePlaceInfoRadar(results, status) {
+  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+    console.error(status);
+    return;
+  }
+  var pointsHeatMapLat=[];
+  for (var i = 0, result; result = results[i]; i++) {
+    //createMarker(result);
+    pointsHeatMap.push(results[i].geometry.location);
+    pointsHeatMapLat.push(results[i].geometry.location.lat())
+  }
+  
+  
+  console.log(pointsHeatMap.length);
+  //var gradient = 'rgba(0, 255, 255, 0)'
+
+  //heatmap.set('gradient', gradient);
+  //
+
+  //makeHeatMap(pointsHeatMap);
+
+
+}
+
+function makeHeatMap(points){
+   heatmap = new google.maps.visualization.HeatmapLayer({
+          data: points,
+          map: map
+        });
+    heatmap.set('opacity', 0.4);
+}
+
+
   var superObject=[];
+  
   function makeObject(coorArr,neighArr,avePriceArr){
-        //console.log(coorArr);
-        //console.log(neighArr);
-        //console.log(avePriceArr);
-        console.log(coorArr[1].lat);
-        console.log(coorArr[1].lng);
+      
+        var realCoorObjectArray=[];
+        for (var j=0; j<realCoorArray.length; j++){
+          var realCoorObject=[];
+          for(var i=0;i<realCoorArray[j].coor.length;i=i+2){
+            realCoorObject.push({lat:realCoorArray[j].coor[i],lng:realCoorArray[j].coor[i+1]})
+
+          }
+       //   console.log(realCoorArray[j].name);
+        realCoorObjectArray.push({name:realCoorArray[j].name,coors:realCoorObject})
+      }
+      
+      realCoorObjectArray.sort(dynamicSort("name"));
+      
+      //console.log(realCoorObjectArray);
         
-        findPlaces(coorArr[9],"restaurant" );
-
-        //Push more items into superObject as needed-work needs to be done to get a number of business
         for(var i=0; i<neighArr.length; i++){
-          superObject.push({name:neighArr[i] , coor:coorArr[i], home_price:avePriceArr[i]});
+          superObject.push({name:neighArr[i] , coor:coorArr[i], home_price:avePriceArr[i],placeInfo:massiveObject[i]});
         }
-        console.log(superObject);
-        //}
-  }
+        
+        superObject.sort(dynamicSort("name"));
+       // console.log(superObject);
+        
+        for(var i=0; i<superObject.length; i++){
+        biggestObject.push({details:superObject[i],coorInfo:realCoorObjectArray[i]});
+        }
+        console.log(biggestObject);
+        makePolygons();
+        
+   
+        
+       
 
-  function addOverlayCoordinateListener(){
-    google.maps.event.addListener(neighborhoodOverlay3, 'click', function(event) {
-      var latitude = event.latLng.lat();
-      var longitude = event.latLng.lng();
-      console.log( latitude + ', ' + longitude );
+    }
+  
 
-      radius = new google.maps.Circle({map: map,
-        radius: 100,
-        center: event.latLng,
-        fillColor: '#777',
-        fillOpacity: 0.1,
-        strokeColor: '#AA0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-            draggable: true,    // Dragable
-            editable: true      // Resizable
-          });
-    });
-  }
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
+
 
   function makeNeighborhoodOverlays(){
 
@@ -194,23 +249,39 @@
  }
 
 
-
-
-  
-
-  function addListenersOnRectangleOver(objectRect, rectangle) {
-    google.maps.event.addListener(rectangle, 'mouseover', function (event) {
+  function polygonListenerOver(obj, poly) {
+    google.maps.event.addListener(poly, 'mouseover', function (event) {
       $("#myModal").css("display", "inline-block");
          // $("#myModay").css("position","absolute")
          var latitude = event.latLng.lat();
          var longitude = event.latLng.lng();
-         $("#neighborhoodTitle").html(objectRect.name);
-         $("#modalText").html(objectRect.name+"<p>latitude:"+latitude+"</p><p>longitude:"+longitude+"</p>");
+         poly.setOptions({strokeOpacity: .8, fillOpacity: .3});
+         $("#neighborhoodTitle").html(obj.details.name);
+         $("#modalText").html(obj.details.name);
 
        }); 
   }
 
+   function polygonListenerOut(obj, poly) {
+    google.maps.event.addListener(poly, 'mouseout', function (event) {
+      $("#myModal").css("display", "none");
+       poly.setOptions({strokeOpacity: 0,fillOpacity: 0});
+    
+    });  
+  }
 
+    function polygonListenerClick(obj, poly) {
+    google.maps.event.addListener(poly, 'click', function (event) {
+      //var lat = event.latLng.lat();
+      //var long = event.latLng.lng();
+      
+    //localStorage.setItem("neighborhood", obj.Details.name);
+    localStorage.setItem("biggestObjectString",JSON.stringify(obj));
+    //localStorage.setItem("long",JSON.stringify(long));
+    window.location.href="neighborhood.html";
+    }); 
+    
+  }
  
     function addListenersOnRectangleClick(objectRect, rectangle) {
     google.maps.event.addListener(rectangle, 'click', function (event) {
@@ -225,55 +296,27 @@
     
   } 
   
-  function addListenersOnRectangleOut(objectRect, rectangle) {
-    google.maps.event.addListener(rectangle, 'mouseout', function (event) {
-      $("#myModal").css("display", "none");
-      
-    });  
-  }
 
+function makePolygons(){
 
-
-  function neighborhoodCoordinates(){
-    var j=0;
-    for (var i=0;i<neighborhoods.length; i++){
-
-      coorObjectArray.push({name:neighborhoods[i],north:coorArray[j],west:coorArray[j+1], south:coorArray[j+2], east:coorArray[j+3]});
-      j=j+4;
-
-
-    }
-
-    console.log(coorObjectArray);
-  }
-
-  function makeClickableNeighborhoods(){
-  var rectangle;
-  for(var i=0; i<coorObjectArray.length; i++){
-    rectangle = new google.maps.Rectangle({
-      strokeColor: '#FF0000',
-      strokeOpacity: 0,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0,
-      map: map,
-      bounds: {
-        north: coorObjectArray[i].north,
-        west:  coorObjectArray[i].west,
-        south: coorObjectArray[i].south,
-        east: coorObjectArray[i].east
-      }
-  
+console.log(biggestObject.length);
+   var polyG
+    for(var i=0; i<biggestObject.length; i++){
+     polyG=new google.maps.Polygon({
+         //paths: Barnum,
+        paths: biggestObject[i].coorInfo.coors,
+        strokeColor: 'blue',
+        strokeOpacity: 0,
+        strokeWeight: 2,
+        fillColor: 'green',
+        fillOpacity: 0
       });
-
-    rectangle.setMap(map);
-    addListenersOnRectangleOver(coorObjectArray[i],rectangle);
-    
-    addListenersOnRectangleOut(coorObjectArray[i],rectangle);
-    addListenersOnRectangleClick(coorObjectArray[i],rectangle);
-    }
-  }
-
+       polyG.setMap(map);
+    polygonListenerOver(biggestObject[i],polyG);
+    polygonListenerOut(biggestObject[i],polyG);
+    polygonListenerClick(biggestObject[i],polyG);
+   }
+} 
 
 function facebookSignin() {
    firebase.auth().signInWithPopup(provider)
@@ -381,23 +424,12 @@ function ZillowAPI () {
         var jsonObj = xmlToJson(response);
         var object = jsonObj["RegionChildren:regionchildren"].response.list.region;
 
-        // var name = object[id].name["#text"] ;
-        //var averagePrice = object[id].zindex["#text"] ;
-        // var latitude = object[id].latitude["#text"] ;
-        // var longitude = object[id].longitude["#text"] ;
-        //console.log(Object.keys(object).length);
-        console.log(object.length);
-        // var jsonObj = xmlToJson(responce);
-        // var object = xmlToJson(responce);
-        console.log(object);
-        //console.log(name);
-        //console.log(averagePrice);
-        //console.log(latitude);
-        //console.log(longitude);
-        // var neighborhoods =[];
+     
         var coordinateArray=[];
         var neighborhoodNameArray=[];
         var averageHousePriceArray=[];
+        //object.sort(dynamicSort("name['#text']"))
+        //console.log(object);
         for(var i=0; i<object.length; i++){
           var name = object[i].name["#text"] ;
       
@@ -428,6 +460,6 @@ function ZillowAPI () {
         console.log('err', err);
     });
 }
-ZillowAPI();
+
     
  

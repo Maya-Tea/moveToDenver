@@ -1,25 +1,150 @@
-console.log(localStorage.getItem("lat"));
-console.log(localStorage.getItem("long"));
-console.log(localStorage.getItem("neighborhood"));
+//console.log(localStorage.getItem("lat"));
+//console.log(localStorage.getItem("long"));
+//console.log(localStorage.getItem("neighborhood"));
 
 
 //SEND THESE TO APIS!!!
- var lat=JSON.parse(localStorage.getItem("lat"));
- var long=JSON.parse(localStorage.getItem("long"));
- var neighborhood=localStorage.getItem("neighborhood");
+ var bigObject=JSON.parse(localStorage.getItem("biggestObjectString"));
+ var centerCoors=bigObject.details.coor;
+ var outlineCoors=bigObject.coorInfo.coors;
+ var name= bigObject.details.name;
+$("#neighborhoodName").html(name);
+ // var long=JSON.parse(localStorage.getItem("long"));
+ // var neighborhood=localStorage.getItem("neighborhood");
+ console.log(bigObject);
 
-
-
+var map;
+var polyG;
+var infowindow;
 
 function initMap() {
-     map2 = new google.maps.Map(document.getElementById('map'), {
+     map= new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
 
-      center: {lat: lat, lng: long}
+      center: centerCoors
 
       
     });
-    
+     makePolygon();
+     google.maps.Polygon.prototype.getBounds = function() {
+        var bounds = new google.maps.LatLngBounds();
+        var paths = this.getPaths();
+        var path;        
+        for (var i = 0; i < paths.getLength(); i++) {
+            path = paths.getAt(i);
+            for (var ii = 0; ii < path.getLength(); ii++) {
+                bounds.extend(path.getAt(ii));
+        }
+    }
+    return bounds;
+    }
+     map.fitBounds(polyG.getBounds());
+     $("#searchPlacesButton").click(function(){
+        var query=$("#searchPlacesText").val();
+        console.log(query);
+        findPlacesText(centerCoors,query);
+     });
+
+  //  findPlaces(centerCoors, 'restaurant');
+
+}
+
+function makePolygon(){
+
+  
+     polyG=new google.maps.Polygon({
+         //paths: Barnum,
+        paths: outlineCoors,
+        strokeColor: 'blue',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: 'green',
+        fillOpacity: 0
+      });
+       polyG.setMap(map);
+    //polygonListenerOver(biggestObject[i],polyG);
+    //polygonListenerOut(biggestObject[i],polyG);
+    //polygonListenerClick(biggestObject[i],polyG);
+
+   
+} 
+
+
+function findPlacesText(coor,searchText){
+    infowindow = new google.maps.InfoWindow();
+    var service = new google.maps.places.PlacesService(map);
+ var request = {
+    location: coor,
+   // radius: 1609,
+   bounds: map.getBounds(),
+   rankBy: google.maps.places.RankBy.DISTANCE,
+    query: searchText
+  };
+
+
+  service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, usePlaceInfoText);
+}
+function usePlaceInfoText(results, status, pagination) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  pagination.nextPage();
+  
+      console.log(results.length);
+      display(results);
+      return results;
+      //console.log(results);
+  }
+}
+function display(results){
+  console.log(results);
+}
+
+
+  function findPlaces(coor, type){
+      infowindow = new google.maps.InfoWindow();
+
+  var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+      location: coor,
+      radius: 1609,//meters in mile
+      rankBy: google.maps.places.RankBy.PROMINENCE,
+      //rankBy: google.maps.places.RankBy.DISTANCE,
+      type: [type],
+      //query:'brewery'
+    }, usePlaceInfo);
+  }
+
+  
+
+  function usePlaceInfo(results, status, pagination) {
+     if (status === google.maps.places.PlacesServiceStatus.OK) {
+      
+      var numBusinesses=Object.keys(results).length;
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+      pagination.nextPage();
+  
+      console.log(results.length);
+    }
+  }
+//var markerArray;
+  function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
+    //markerArray.push(marker);
   }
 
 // Changes XML to JSON

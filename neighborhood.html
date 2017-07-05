@@ -11,11 +11,14 @@
  
   </head>
   <body>
-  <h1>Hello</h1>
+
+  <h1 id="neighborhoodName"></h1>
+  <input type=text id='searchPlacesText'>
+  <button id='searchPlacesButton'>Search in neighborhood</button>
   <div id="map"></div>
   <script src="assets/js/neighborhood.js"></script>
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo&callback=initMap&libraries=places,visualization">
     </script>
   </body>
   </html>

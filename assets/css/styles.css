@@ -4,7 +4,11 @@
       #map {
         height: 100%;
         width:50%;
+      #loadingGif{
+        position:absolute;
+        top:0;
         
+      }  
       }
       #mapDiv{
         position:relative;
