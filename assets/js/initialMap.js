@@ -62,9 +62,6 @@
       }
    }
 
-    restore.onclick = function() {
-      location.reload();
-  }
 
    span.onclick = function() {
     modal.style.display = "none";
@@ -318,53 +315,7 @@ console.log(biggestObject.length);
    }
 } 
 
-function facebookSignin() {
-   firebase.auth().signInWithPopup(provider)
-   
-   .then(function(result) {
-      var token = result.credential.accessToken;
-      var user = result.user;
-    
-      console.log(token)
-      console.log(user)
-   }).catch(function(error) {
-      console.log(error.code);
-      console.log(error.message);
-   });
-}
 
-function facebookSignout() {
-   firebase.auth().signOut()
-   
-   .then(function() {
-      console.log('Signout successful!')
-   }, function(error) {
-      console.log('Signout failed')
-   });
-}
-
-   $(document).ready(function() {FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-})});
-     // FB.login() 
-    // console.log(response);
-
-    // /w/api.php?action=query&format=json&prop=info&titles=Albert+Einstein
- 
-    var queryURL = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=Denver";
-
-      $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).done(function(response) {
-      //will need to create var or method to dynamically pull page id, this was just to test API
-        console.log(response.query.pages[8522].extract);
-        //can put stringify into the .html or .text
-        JSON.stringify({response});
-        // $("#neighborhoodResults").text(response.query.pages[8522].extract);
-        $("#neighborhoodResults").append(response.query.pages[8522].extract);
-        
-    })
 
 
 // Changes XML to JSON
