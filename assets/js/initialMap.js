@@ -24,11 +24,8 @@
    var rmv_add_Overlay = document.getElementById("removeOverlayButton");
    var restore=document.getElementById("restoreMap");
    var span = document.getElementsByClassName("close")[0];
- 
-    var pointsHeatMap=[];
   
-   var pointsHeatMap=[];
-  var heatmap;
+   
 
 
    var apiKey="AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo";
@@ -86,6 +83,12 @@
   //var heatOn=false;
  
   var heatClickedOnce=false;
+  var weedClickedOnce=false;
+  var pointsHeatMap=[];
+  var heatmap;
+  var pointsWeedMap=[];
+  var weedmap;
+  //var corporateClickedOnce=false;
 
   function toggleHeatmap() {
 
@@ -110,61 +113,97 @@
       console.log(pointsHeatMap);
       makeHeatMap(pointsHeatMap);
     },4000)
-    
-
   }
+
   else{
    heatmap.setMap(heatmap.getMap() ? null : map);
-  //$("#hipHeatMapButton").text("Turn On Hipster Heatmap");
-    //  else if(heatOn){
-    //  heatmap.setMap(null);
-    //  $("#heatmapButton").html("Add Hipster HeatMap");
-    //  heatOn=false;
-    // }
+  }
+}
+
+function toggleWeedmap(){
+    
+    if(!weedClickedOnce){
+      findPlacesWeed("dispensary");
+
+    $("#weedHeatMapButton").text("Creating Heatmap");
+    $('#mapDiv').append(loadingGif);
+    weedClickedOnce=true;
+    //heatOn=true;
+
+    setTimeout(function(){
+      loadingGif.remove();
+      $("#weedHeatMapButton").text("Toggle 420 Heatmap");
+      console.log(pointsWeedMap);
+      makeWeedMap(pointsWeedMap);
+    },1000)
+  }
+
+  else{
+   weedmap.setMap(weedmap.getMap() ? null : map);
 
   }
 }
 
+function findPlacesWeed(keyword){
+var request = {
+      bounds: map.getBounds(),
+      keyword: keyword
+    };
+    service = new google.maps.places.PlacesService(map);
 
+  service.radarSearch(request, usePlaceInfoWeed);
+  
+}
 
+function usePlaceInfoWeed(results, status) {
+  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+    console.error(status);
+    return;
+  }
+  
+  for (var i = 0, result; result = results[i]; i++) {
+      pointsWeedMap.push(results[i].geometry.location);
+   }
 
-  function findPlacesRadar(keyword) {
+}
+function makeWeedMap(points){
+   weedmap = new google.maps.visualization.HeatmapLayer({
+          data: points,
+          map: map
+        });
+    weedmap.set('opacity', 0.4);
+}
+
+function findPlacesRadar(keyword) {
     var request = {
       bounds: map.getBounds(),
       keyword: keyword
     };
     service = new google.maps.places.PlacesService(map);
-  //service.radarSearch(request, usePlaceInfoRadar);
+
   service.radarSearch(request, usePlaceInfoRadar);
   
 }
+
+
 
 function usePlaceInfoRadar(results, status) {
   if (status !== google.maps.places.PlacesServiceStatus.OK) {
     console.error(status);
     return;
   }
-  var pointsHeatMapLat=[];
+  
   for (var i = 0, result; result = results[i]; i++) {
-    //createMarker(result);
-    pointsHeatMap.push(results[i].geometry.location);
-    pointsHeatMapLat.push(results[i].geometry.location.lat())
-  }
+      pointsHeatMap.push(results[i].geometry.location);
+   }
   
   
   console.log(pointsHeatMap.length);
-  //var gradient = 'rgba(0, 255, 255, 0)'
-
-  //heatmap.set('gradient', gradient);
-  //
-
-  //makeHeatMap(pointsHeatMap);
-
 
 }
 
 function makeHeatMap(points){
-   heatmap = new google.maps.visualization.HeatmapLayer({
+   heatmap= new google.maps.visualization.HeatmapLayer({
           data: points,
           map: map
         });
@@ -209,6 +248,37 @@ function makeHeatMap(points){
        
 
     }
+
+    function hipsterIndex () {
+     var hipsterScore = 0;
+     console.log("hipster!!!");
+    for (i=0; i < 78; i++) {
+       
+       var bars = massiveObject[i].barCount;
+       var restaurants = massiveObject[i].restaurantCount;
+       var averagePrice = massiveObject[i].zindex;
+       var breweries =  massiveObject[i].brewerieCount;
+       var pricepoint = (averagePrice-300000);
+       var foodBar = (bars + restaurants);
+       // console.log(bars);
+        if (breweries > 0) {
+            hipsterScore = 3;
+        
+        } else if (breweries > 5) {
+            hipsterScore = 5;
+            if (pricepoint > 0) {
+                hipsterScore = hipsterScore - (pricepoint/100000)
+            }
+        } else {
+            hipsterScore = (foodBar/15);
+        }
+        massiveObject[i].hipsterIndex = hipsterScore;
+        
+     // console.log("new" + massiveObject);
+    }
+     console.log(massiveObject)
+}
+hipsterIndex();
   
 
   function dynamicSort(property) {
