@@ -86,7 +86,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
   
 
   massiveObject = {
-    0 : {//Montbello
+    0 : {name:"Montbello",
         
         restaurantCount: 24,
         barCount: 0,
@@ -96,7 +96,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Montbello,_Denver",
         pageId: 3219217
     },
-    1 : {//Green Valley Ranch 
+    1 : {name:"Green Valley Ranch", 
         restaurantCount: 20,
         barCount:2 ,
         brewerieCount:0 ,
@@ -104,7 +104,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore:0 ,
         
     },
-    2: { //hampden N/A
+    2: { name:"Hampden",
         restaurantCount:15 ,
         barCount: 3,
         brewerieCount:0 ,
@@ -112,14 +112,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 1,
 
     },
-    3: { //Westwood
+    3: { name:"Westwood",
         restaurantCount:25 ,
         barCount: 4,
         brewerieCount: 0,
         parks:4 ,
         hipsterScore: 2,
     },
-    4: { //capitol hill
+    4: {name:"Capitol Hill",
         restaurantCount: 25 ,
         barCount: 25,
         brewerieCount:6 ,
@@ -129,7 +129,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 2084095
 
     },
-    5: { //hampden south
+    5: {name:"Hampden South",
         restaurantCount: 6,
         barCount: 3,
         brewerieCount: 0,
@@ -138,28 +138,28 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Hampden_South,_Denver",
         pageId: 21275859 
     },
-    6: {  // Mar Lee N/A
+    6: {name:"Mar Lee",
         restaurantCount: 8 ,
         barCount:5 ,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 0
     },
-    7: { //Windsor N/A
+    7: {name:"Windsor",
         restaurantCount: 8,
         barCount: 3,
         brewerieCount: 1,
         parks:1 ,
         hipsterScore: 0
     },
-    8: { //Five Points
+    8: {name:"Five Points",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 18,
         parks: 1,
         hipsterScore: 5,
     },
-    9: { //Virgina Village
+    9: {name:"Virgina Village",
         restaurantCount: 25,
         barCount: 9,
         brewerieCount: 2,
@@ -168,7 +168,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Virginia_Village,_Denver",
         pageId: 21139686
     },
-    10: { //Washington Virgina Vale
+    10: {name:"Washington Virgina Vale",
         restaurantCount: 25,
         barCount: 7,
         brewerieCount: 0,
@@ -177,7 +177,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Washington_Virginia_Vale,_Denver",
         pageId: 39540485
     },
-    11: { //Speer
+    11: {name:"Speer",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
@@ -186,21 +186,21 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Speer,_Denver",
         pageId: 22864873
     },
-    12: {// Harvey Park N/A
+    12: {name:"Harvey Park",
         restaurantCount: 3,
         barCount: 5,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    13: { //East Colfax  N/A
+    13: {name:"East Colfax",
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 0,
         parks: 0,
         hipsterScore: 1,
     },
-    14: { //Congress Park 
+    14: {name:"Congress Park", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 2,
@@ -210,7 +210,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22572104
 
     },
-    15: { //Sunnyside 
+    15: {name:"Sunnyside", 
         restaurantCount: 13,
         barCount: 2,
         brewerieCount: 3,
@@ -220,14 +220,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 10734001
     },
 // could not find it
-    16: { //Marston N/A
+    16: {name:"Marston",
         restaurantCount: 25,
         barCount: 5,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 0,
     },
-    17: {//Ruby Hill
+    17: {name:"Ruby Hill",
         restaurantCount: 20,
         barCount: 2,
         brewerieCount: 0,
@@ -236,7 +236,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Ruby_Hill,_Denver",
         pageId: 53527989
     },
-    18: {// Bear Valley N/A
+    18: {name:"Bear Valley",
         restaurantCount: 21,
         barCount: 3,
         brewerieCount: 0,
@@ -244,7 +244,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 0,
 
     },
-    19: {//University
+    19: {name:"University",
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 1,
@@ -253,21 +253,21 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "University,_Denver",
         pageId: 4778647
     },
-    20: {//West Highland N /A
+    20: {name:"West Highland",
         restaurantCount: 25,
         barCount: 22,
         brewerieCount: 3,
         parks: 3,
         hipsterScore: 4,
     },
-    21: {//NOrth Park Hill N/A
+    21: {name:"North Park Hill",
         restaurantCount: 18,
         barCount: 7,
         brewerieCount: 1,
         parks: 1,
         hipsterScore: 3,
     },
-    22: {//West Colfax
+    22: {name:"West Colfax",
         restaurantCount: 16,
         barCount: 6,
         brewerieCount: 0,
@@ -276,14 +276,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "West_Colfax,_Denver",
         pageId: 22920188
     },
-    23: {//Harvey Park South  N/A
+    23: {name:"Harvey Park South",
         restaurantCount: 19,
         barCount: 5,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    24: {//Lowry Field 
+    24: {name:"Lowry Field", 
         restaurantCount: 13,
         barCount: 6,
         brewerieCount: 0,
@@ -292,7 +292,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Lowry,_Denver",
         pageId: 8747507
     },
-    25: {// Villa Park 
+    25: {name:"Villa Park", 
         restaurantCount: 5,
         barCount: 3,
         brewerieCount: 1,
@@ -301,12 +301,12 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Villa_Park,_Denver",
         pageId: 21435127
     },
-    26: {//South Park Hill N/A
+    26: {name:"South Park Hill",
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    27: {//Highland 
+    27: {name:"Highland", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 12,
@@ -315,7 +315,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Highland,_Denver",
         pageId: 6163366
     },
-    28: {//Cheesman Park 
+    28: {name:"Cheesman Park", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 3,
@@ -324,7 +324,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Cheesman_Park,_Denver",
         pageId: 15183274
     },
-    29: {//Athmar Park 
+    29: {name:"Athmar Park", 
         restaurantCount: 25,
         barCount: 4,
         brewerieCount: 0,
@@ -333,14 +333,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Athmar_Park",
         pageId: 15142405
     },
-    30: {//Fort Logan N/A
+    30: {name:"Fort Logan",
         restaurantCount: 3,
         barCount: 2,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 1,
     },
-    31: {//Hilltop
+    31: {name:"Hilltop",
         restaurantCount: 9,
         barCount: 0,
         brewerieCount: 0,
@@ -349,14 +349,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Hilltop,_Denver",
         pageId: 22028224
     },
-    32: { //Northeast Park Hill N/A
+    32: { name:"Northeast Park Hill",
         restaurantCount: 9,
         barCount: 2,
         brewerieCount: 0,
         parks: 0,
         hipsterScore: 1,
     },
-    33: {//Berkeley 
+    33: {name:"Berkeley", 
         restaurantCount: 25,
         barCount: 15,
         brewerieCount: 4,
@@ -365,14 +365,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Berkeley,_Denver",
         pageId: 10734071
     },
-    34: {//University Park N/A
+    34: {name:"University Park",
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 4,
         parks: 3,
         hipsterScore: 4,
     },
-    35: {//Sloan Lake 
+    35: {name:"Sloan Lake", 
         restaurantCount: 16,
         barCount: 11,
         brewerieCount: 3,
@@ -381,7 +381,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Sloan_Lake_(Colorado)",
         pageId: 18710805
     },
-    36: {//Elyria Swansea
+    36: {name:"Elyria Swansea",
         restaurantCount: 4,
         barCount: 5,
         brewerieCount: 2,
@@ -390,7 +390,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Elyria-Swansea,_Denver",
         pageId: 22524481
     },
-    37: {//Washington Park 
+    37: {name:"Washington Park", 
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 0,
@@ -399,21 +399,21 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Washington_Park,_Denver",
         pageId: 3347175
     },
-    38: {//Washington Park West N/A
+    38: {name:"Washington Park West",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
         parks: 4,
         hipsterScore: 3,
     },
-    39: {//College View/South Platte N/A
+    39: {name:"College View/South Platte",
         restaurantCount: 7,
         barCount: 6,
         brewerieCount: 1,
         parks: 2,
         hipsterScore: 3,
     },
-    40: {//Hale
+    40: {name:"Hale",
         restaurantCount: 25,
         barCount: 5,
         brewerieCount: 1,
@@ -422,14 +422,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Hale,_Denver",
         pageId: 31266062
     },
-    41: {//University Hills N/A
+    41: {name:"University Hills",
         restaurantCount: 11,
         barCount: 1,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 1,
     },
-    42: {//Whittier 
+    42: {name:"Whittier", 
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 6,
@@ -438,7 +438,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Whittier,_Denver",
         pageId: 16284501
     },
-    43: {//Lincoln Park 
+    43: {name:"Lincoln Park", 
         restaurantCount: 25,
         barCount: 10,
         brewerieCount: 8,
@@ -447,7 +447,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Lincoln_Park,_Denver",
         pageId: 18312107
     },
-    44: {//Montclair
+    44: {name:"Montclair",
         restaurantCount: 25,
         barCount: 7,
         brewerieCount: 1,
@@ -456,7 +456,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Montclair,_Denver",
         pageId: 8747548
     },
-    45: {//Barnum 
+    45: {name:"Barnum", 
         restaurantCount: 11,
         barCount: 5,
         brewerieCount: 2,
@@ -465,7 +465,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Barnum,_Denver",
         pageId: 23129884
     },
-    46: {//North Capitol Hill 
+    46: {name:"North Capitol Hill", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 9,
@@ -474,7 +474,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "North_Capitol_Hill,_Denver",
         pageId: 21137433
     },
-    47: {//Chery Creek 
+    47: {name:"Chery Creek", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
@@ -483,14 +483,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Cherry_Creek,_Denver",
         pageId: 5012574
     },
-    48: {//Platt Park N/A
+    48: {name:"Platt Park",
         restaurantCount: 25,
         barCount: 20,
         brewerieCount: 1,
         parks: 3,
         hipsterScore: 3,
     },
-    49: {//Baker
+    49: {name:"Baker",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
@@ -499,21 +499,21 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Baker,_Denver",
         pageId: 6339055
     },
-    50: {//Goldsmith N/A
+    50: {name:"Goldsmith",
         restaurantCount: 16,
         barCount: 11,
         brewerieCount: 0,
         parks: 1,
         hipsterScore: 2,
     },
-    51: {//Barnum West N/A
+    51: {name:"Barnum West",
         restaurantCount: 7,
         barCount: 5,
         brewerieCount: 0,
         parks: 1,
         hipsterScore: 2,
     },
-    52: {//Cole
+    52: {name:"Cole",
         restaurantCount: 5,
         barCount: 4,
         brewerieCount: 9,
@@ -522,7 +522,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Cole,_Denver",
         pageId: 23308019
     },
-    53: {//Belcaro 
+    53: {name:"Belcaro", 
         restaurantCount: 25,
         barCount: 14,
         brewerieCount: 0,
@@ -531,7 +531,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Belcaro,_Denver",
         pageId: 23472623
     },
-    54: {//Clayton 
+    54: {name:"Clayton", 
         restaurantCount: 11,
         barCount: 1,
         brewerieCount: 0,
@@ -540,14 +540,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Clayton,_Denver",
         pageId: 35116316
     },
-    55: {//Southmoor Park N/A
+    55: {name:"Southmoor Park",
         restaurantCount: 21,
         barCount: 3,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 3,
     },
-    56: {//Union Station 
+    56: {name:"Union Station", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 13,
@@ -556,7 +556,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Union_Station,_Denver_(neighborhood)",
         pageId: 24157843
     },
-    57: {//City Park West
+    57: {name:"City Park West",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 3,
@@ -565,7 +565,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "City_Park_West,_Denver",
         pageId: 22215442
     },
-    58: {//Regis
+    58: {name:"Regis",
         restaurantCount: 16,
         barCount: 0,
         brewerieCount: 0,
@@ -574,14 +574,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Regis,_Denver",
         pageId: 29137994
     },
-    59: {//Kennedy N/A
+    59: {name:"Kennedy",
         restaurantCount: 8,
         barCount: 7,
         brewerieCount: 0,
         parks: 5,
         hipsterScore: 2,
     },
-    60: {//Chaffee Park 
+    60: {name:"Chaffee Park", 
         restaurantCount: 5,
         barCount: 3,
         brewerieCount: 2,
@@ -590,14 +590,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Chaffee_Park,_Denver",
         pageId: 22836270
     },
-    61: {//Cory-Merril N/A
+    61: {name:"Cory-Merril",
         restaurantCount: 25,
         barCount: 10,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    62: {//Valverde 
+    62: {name:"Valverde", 
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 2,
@@ -606,7 +606,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Valverde,_Denver",
         pageId: 23024501
     },
-    63: {//Globeville
+    63: {name:"Globeville",
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 1,
@@ -615,35 +615,35 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Globeville,_Denver",
         pageId: 21547118
     },
-    64: {//Wellshire N/A
+    64: {name:"Wellshire",
         restaurantCount: 4,
         barCount: 5,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    65: {//Central Business District
+    65: {name:"Central Business District",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 10,
         parks: 2,
         hipsterScore: 5,
     },
-    66: {//Indian Creek N/A
+    66: {name:"Indian Creek",
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 2,
         parks: 2,
         hipsterScore: 3,
     },
-    67: {//Skyland n/a
+    67: {name:"Skyland",
         restaurantCount: 14,
         barCount: 3,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    68: {//Country Club 
+    68: {name:"Country Club", 
         restaurantCount: 25,
         barCount: 8,
         brewerieCount: 0,
@@ -652,7 +652,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Country_Club,_Denver",
         pageId: 19897044
     },
-    69: {//City Park 
+    69: {name:"City Park", 
         restaurantCount: 25,
         barCount: 18,
         brewerieCount: 2,
@@ -661,14 +661,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "City_Park,_Denver",
         pageId: 6326701
     },
-    70: {//Rosedale N/A
+    70: {name:"Rosedale",
         restaurantCount: 25,
         barCount: 4,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    71: {//Jefferson Park 
+    71: {name:"Jefferson Park", 
         restaurantCount:25, 
         barCount: 19,
         brewerieCount: 6,
@@ -677,14 +677,14 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Jefferson_Park,_Denver",
         pageId: 5554275
     },
-    72: {//Overland n/a
+    72: {name:"Overland",
         restaurantCount: 25,
         barCount: 15,
         brewerieCount: 8,
         parks: 4,
         hipsterScore: 5,
     },
-    73: {//Civic Center
+    73: {name:"Civic Center",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
@@ -693,7 +693,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Civic_Center,_Denver",
         pageId: 2237848
     },
-    74: {//Sun Valley 
+    74: {name:"Sun Valley", 
         restaurantCount: 5,
         barCount: 1,
         brewerieCount: 4,
@@ -702,7 +702,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Sun_Valley,_Denver",
         pageId: 11490364
     },
-    75: {//Stapleton 
+    75: {name:"Stapleton", 
         restaurantCount: 25,
         barCount: 9,
         brewerieCount: 1,
@@ -711,7 +711,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Stapleton,_Denver",
         pageId: 23208598
     },
-    76: {//Dia 
+    76: {name:"Dia", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 0,
@@ -720,7 +720,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Stapleton_International_Airport",
         pageId: 268465
     },
-    77: {//Auroria
+    77: {name:"Auroria",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 0,
@@ -747,56 +747,3 @@ var queryURL = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&for
                   })
 
 
-
- $("#initialSubmit").on("click", function() {
-    event.preventDefault();
-    console.log("click working");
-// function that calculates optimal fit
-// adds points to user match..... neighborhoods with the highest match number are the top 3
-    var userMatch = 0;
-    var matchArray = [];
-    // var userHipster =  $("#").val().trim();
-    // var houseMax = $("#").val().trim();
-    // var userParks = $("#").val().trim();
-    // var nighLife = $("#").val().trim();
-    var userHipster =  4;
-    var houseMax = 550000;
-    var userParks = 3;
-    var nighLife = true;
-    for (i=0; i < 78; i++) {
-        userMatch = 0;
-        
-        var bars = massiveObject[i].barCount;
-        var restaurants = massiveObject[i].restaurantCount;
-        var averagePrice = massiveObject[i].zindex;
-        var breweries =  massiveObject[i].brewerieCount;
-        var parks = massiveObject[i].parks;
-        var hipsterIndex = massiveObject[i].hipsterIndex;
-        var foodBar = (bars + restaurants);
-        // multiplies user input times neighborhood value
-        userMatch += userHipster * hipsterIndex ;
-        userMatch += userParks * parks;
-        
-        if (nighLife) {
-            userMatch += (foodBar/2) 
-        } else {
-            userMatch -= (foodBar/10)
-        }
-        if (averagePrice > houseMax) {
-            userMatch -= 30;
-        } ;
-        massiveObject[i].userMatch = userMatch;
-        matchArray.push(userMatch);
-    }
-    console.log(massiveObject);
-    var maxMatch = Math.max.apply(null, matchArray); 
-    var closeMatch = maxMatch - 1;
-    console.log(maxMatch);
-    for (i=0; i < 78; i++) {
-        var neighborhoodMatch = massiveObject[i].userMatch;
-        if (neighborhoodMatch > closeMatch) {
-            console.log(i+massiveObject[i]);
-            // print out button that takes to link
-        }
-    }
- });
