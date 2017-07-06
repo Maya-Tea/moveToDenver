@@ -183,47 +183,56 @@ function xmlToJson(xml) {
     }
     return obj;
 };
-// sample  url code "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz194ui711ssr_64j9s&address=2114+Bigelow+Ave&citystatezip=Seattle+Washington"
-// adderss need to be in url format example ("2114+bigelow+ave") same with city state ()
-function ZillowAPI (id) {
-    console.log('in xizilloe api');
-        // var adress = ("&address=" + address);
-    // var adressCity = ("&citystatezip=" + city + "+" + state);
-    var apiKey = "X1-ZWz194ui711ssr_64j9s";
-    // var queryURL = ("http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + key + adress + adressCity);
-    // regional url gives out 1.) average house price 2.)neighborhood link 3.)latitude&longitude 4.)
-    var regionURL = ("http://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=" + apiKey + "&state=Co&city=denver&childtype=neighborhood");
-    
-    
-    $.ajax({
+
+ $("#initialSubmit").on("click", function() {
+    event.preventDefault();
+    console.log("click working");
+// function that calculates optimal fit
+// adds points to user match..... neighborhoods with the highest match number are the top 3
+    var userMatch = 0;
+    var matchArray = [];
+    // var userHipster =  $("#").val().trim();
+    // var houseMax = $("#").val().trim();
+    // var userParks = $("#").val().trim();
+    // var nighLife = $("#").val().trim();
+    var userHipster =  4;
+    var houseMax = 550000;
+    var userParks = 3;
+    var nighLife = true;
+    for (i=0; i < 78; i++) {
+        userMatch = 0;
         
-        url: regionURL,
-        method: "GET"
-    }).done(function(responce){
-        console.log("yes");
-        var jsonObj = xmlToJson(responce);
-        var object = jsonObj["RegionChildren:regionchildren"].response.list.region;
+        var bars = massiveObject[i].barCount;
+        var restaurants = massiveObject[i].restaurantCount;
+        var averagePrice = massiveObject[i].zindex;
+        var breweries =  massiveObject[i].brewerieCount;
+        var parks = massiveObject[i].parks;
+        var hipsterIndex = massiveObject[i].hipsterIndex;
+        var foodBar = (bars + restaurants);
+        // multiplies user input times neighborhood value
+        userMatch += userHipster * hipsterIndex ;
+        userMatch += userParks * parks;
         
-        var name = object[id].name["#text"] ;
-        var averagePrice = object[id].zindex["#text"] ;
-        var latitude = object[id].latitude["#text"] ;
-        var longitude = object[id].longitude["#text"] ;
-        // var jsonObj = xmlToJson(responce);
-        // var object = xmlToJson(responce);
-        console.log(object);
-        console.log(name);
-        console.log(averagePrice);
-        console.log(latitude);
-        console.log(longitude);
-        // var neighborhoods =[];
-    
-        
-        // object = JSON.parse(object);
-        // console.log('this is json', object);
-        // $("#data").html(object);
-        
-    }).fail((err) => {
-        console.log('err', err);
-    });
-}
-ZillowAPI(19);
+        if (nighLife) {
+            userMatch += (foodBar/2) 
+        } else {
+            userMatch -= (foodBar/10)
+        }
+        if (averagePrice > houseMax) {
+            userMatch -= 30;
+        } ;
+        massiveObject[i].userMatch = userMatch;
+        matchArray.push(userMatch);
+    }
+    console.log(massiveObject);
+    var maxMatch = Math.max.apply(null, matchArray); 
+    var closeMatch = maxMatch - 1;
+    console.log(maxMatch);
+    for (i=0; i < 78; i++) {
+        var neighborhoodMatch = massiveObject[i].userMatch;
+        if (neighborhoodMatch > closeMatch) {
+            console.log(i+massiveObject[i]);
+            // print out button that takes to link
+        }
+    }
+ });
