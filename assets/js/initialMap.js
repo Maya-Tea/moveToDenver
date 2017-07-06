@@ -482,5 +482,39 @@ function ZillowAPI () {
     });
 }
 
-    
+function ValidateEmail(mail)  {  
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
+ {  
+  return (true)  
+}  
+alert("You have entered an invalid email address!")  
+return (false)  
+}  
+
+$("#validate").on("click", function () {
+  ValidateEmail();
+
+  $("#email").text("");
+  
+      //When firebase is working...we can push to database (could use local storage too), this can be a way to have people leave comments
+      
+      var modal = document.getElementById('emailModal');
+      var span = document.getElementsByClassName("close")[0];
+
+      modal.style.display = "block";
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+
+
+
+    })  
  

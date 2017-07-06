@@ -214,14 +214,28 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb44GEujIrnkFexqREwJEXfrO
         <h4> Trending Comments </h4>
         <div id="trendingComment"> New Comment </div>
         </div>
+
+
+        <div class= "emailLogIn">
+          <label> Validate Your email: </label>
+            <form id="email">
+            <input type="email" id="emailId">
+            </form>
+              <button type="submit" id="validate"> Submit </button>
+        </div>
+
+
+  </div>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <script src="assets/js/initVars.js"></script>
+    <script src="assets/js/initialMap.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo&callback=initMap&libraries=places,visualization">
+    </script>
+ <!--  async defer -->
+  </body>
+
       </div>
    
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script src="assets/js/initVars.js"></script>
-<script src="assets/js/initialMap.js"></script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo&callback=initMap&libraries=places,visualization">
-</script>
-<!--  async defer -->
-</body>
+
 </html>

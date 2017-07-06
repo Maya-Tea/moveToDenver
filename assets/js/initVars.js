@@ -86,555 +86,717 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
   
 
   massiveObject = {
-    0 : {
+    0 : {//Montbello
         
         restaurantCount: 24,
         barCount: 0,
         brewerieCount:1 ,
         parks:1 ,
         hipsterScore:0 ,
-       
+        query: "Montbello,_Denver",
+        pageId: 3219217
     },
-    1 : {
+    1 : {//Green Valley Ranch 
         restaurantCount: 20,
         barCount:2 ,
         brewerieCount:0 ,
         parks: 0,
         hipsterScore:0 ,
+        
     },
-    2: {
+    2: { //hampden N/A
         restaurantCount:15 ,
         barCount: 3,
         brewerieCount:0 ,
         parks: 3,
         hipsterScore: 1,
+
     },
-    3: {
+    3: { //Westwood
         restaurantCount:25 ,
         barCount: 4,
         brewerieCount: 0,
         parks:4 ,
         hipsterScore: 2,
     },
-    4: {
+    4: { //capitol hill
         restaurantCount: 25 ,
         barCount: 25,
         brewerieCount:6 ,
         parks: 2 ,
         hipsterScore:3 ,
+        query: "Capitol_Hill_(Denver)",
+        pageId: 2084095
+
     },
-    5: {
+    5: { //hampden south
         restaurantCount: 6,
         barCount: 3,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 3,
+        query: "Hampden_South,_Denver",
+        pageId: 21275859 
     },
-    6: {
+    6: {  // Mar Lee N/A
         restaurantCount: 8 ,
         barCount:5 ,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 0
     },
-    7: {
+    7: { //Windsor N/A
         restaurantCount: 8,
         barCount: 3,
         brewerieCount: 1,
         parks:1 ,
         hipsterScore: 0
     },
-    8: {
+    8: { //Five Points
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 18,
         parks: 1,
         hipsterScore: 5,
     },
-    9: {
+    9: { //Virgina Village
         restaurantCount: 25,
         barCount: 9,
         brewerieCount: 2,
         parks: 4,
         hipsterScore: 3,
+        query: "Virginia_Village,_Denver",
+        pageId: 21139686
     },
-    10: {
+    10: { //Washington Virgina Vale
         restaurantCount: 25,
         barCount: 7,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 3,
+        query: "Washington_Virginia_Vale,_Denver",
+        pageId: 39540485
     },
-    11: {
+    11: { //Speer
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
         parks: 4,
         hipsterScore: 4,
+        query: "Speer,_Denver",
+        pageId: 22864873
     },
-    12: {
+    12: {// Harvey Park N/A
         restaurantCount: 3,
         barCount: 5,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    13: {
+    13: { //East Colfax  N/A
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 0,
         parks: 0,
         hipsterScore: 1,
     },
-    14: {
+    14: { //Congress Park 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 2,
         parks: 3,
         hipsterScore: 4,
+        query: "Congress_Park,_Denver",
+        pageId: 22572104
+
     },
-    15: {
+    15: { //Sunnyside 
         restaurantCount: 13,
         barCount: 2,
         brewerieCount: 3,
         parks: 4,
         hipsterScore: 5,
+        query: "Sunnyside,_Denver",
+        pageId: 10734001
     },
 // could not find it
-    16: {
+    16: { //Marston N/A
         restaurantCount: 25,
         barCount: 5,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 0,
     },
-    17: {
+    17: {//Ruby Hill
         restaurantCount: 20,
         barCount: 2,
         brewerieCount: 0,
         parks: 1,
         hipsterScore: 0,
+        query: "Ruby_Hill,_Denver",
+        pageId: 53527989
     },
-    18: {
+    18: {// Bear Valley N/A
         restaurantCount: 21,
         barCount: 3,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 0,
+
     },
-    19: {
+    19: {//University
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 1,
         parks: 1,
         hipsterScore: 4,
+        query: "University,_Denver",
+        pageId: 4778647
     },
-    20: {
+    20: {//West Highland N /A
         restaurantCount: 25,
         barCount: 22,
         brewerieCount: 3,
         parks: 3,
         hipsterScore: 4,
     },
-    21: {
+    21: {//NOrth Park Hill N/A
         restaurantCount: 18,
         barCount: 7,
         brewerieCount: 1,
         parks: 1,
         hipsterScore: 3,
     },
-    22: {
+    22: {//West Colfax
         restaurantCount: 16,
         barCount: 6,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 3,
+        query: "West_Colfax,_Denver",
+        pageId: 22920188
     },
-    23: {
+    23: {//Harvey Park South  N/A
         restaurantCount: 19,
         barCount: 5,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    24: {
+    24: {//Lowry Field 
         restaurantCount: 13,
         barCount: 6,
         brewerieCount: 0,
         parks: 5,
         hipsterScore: 2,
+        query: "Lowry,_Denver",
+        pageId: 8747507
     },
-    25: {
+    25: {// Villa Park 
         restaurantCount: 5,
         barCount: 3,
         brewerieCount: 1,
         parks: 4,
         hipsterScore: 3,
+        query: "Villa_Park,_Denver",
+        pageId: 21435127
     },
-    26: {
-        restaurantCount: 25,
-        barCount: 12,
+    26: {//South Park Hill N/A
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    27: {
+    27: {//Highland 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 12,
         parks: 4,
         hipsterScore: 5,
+        query: "Highland,_Denver",
+        pageId: 6163366
     },
-    28: {
+    28: {//Cheesman Park 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 3,
         parks: 1,
         hipsterScore: 4,
+        query: "Cheesman_Park,_Denver",
+        pageId: 15183274
     },
-    29: {
+    29: {//Athmar Park 
         restaurantCount: 25,
         barCount: 4,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
+        query: "Athmar_Park",
+        pageId: 15142405
     },
-    30: {
+    30: {//Fort Logan N/A
         restaurantCount: 3,
         barCount: 2,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 1,
     },
-    31: {
+    31: {//Hilltop
         restaurantCount: 9,
         barCount: 0,
         brewerieCount: 0,
         parks: 5,
         hipsterScore: 1,
+        query: "Hilltop,_Denver",
+        pageId: 22028224
     },
-    32: {
+    32: { //Northeast Park Hill N/A
         restaurantCount: 9,
         barCount: 2,
         brewerieCount: 0,
         parks: 0,
         hipsterScore: 1,
     },
-    33: {
+    33: {//Berkeley 
         restaurantCount: 25,
         barCount: 15,
         brewerieCount: 4,
         parks: 4,
         hipsterScore: 3.5,
+        query: "Berkeley,_Denver",
+        pageId: 10734071
     },
-    34: {
+    34: {//University Park N/A
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 4,
         parks: 3,
         hipsterScore: 4,
     },
-    35: {
+    35: {//Sloan Lake 
         restaurantCount: 16,
         barCount: 11,
         brewerieCount: 3,
         parks: 3,
         hipsterScore: 4,
+        query: "Sloan_Lake_(Colorado)",
+        pageId: 18710805
     },
-    36: {
+    36: {//Elyria Swansea
         restaurantCount: 4,
         barCount: 5,
         brewerieCount: 2,
         parks: 3,
         hipsterScore: 2,
+        query: "Elyria-Swansea,_Denver",
+        pageId: 22524481
     },
-    37: {
+    37: {//Washington Park 
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 3,
+        query: "Washington_Park,_Denver",
+        pageId: 3347175
     },
-    38: {
+    38: {//Washington Park West N/A
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
         parks: 4,
         hipsterScore: 3,
     },
-    39: {
+    39: {//College View/South Platte N/A
         restaurantCount: 7,
         barCount: 6,
         brewerieCount: 1,
         parks: 2,
         hipsterScore: 3,
     },
-    40: {
+    40: {//Hale
         restaurantCount: 25,
         barCount: 5,
         brewerieCount: 1,
         parks: 4,
         hipsterScore: 3,
+        query: "Hale,_Denver",
+        pageId: 31266062
     },
-    41: {
+    41: {//University Hills N/A
         restaurantCount: 11,
         barCount: 1,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 1,
     },
-    42: {
+    42: {//Whittier 
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 6,
         parks: 4,
         hipsterScore: 5,
+        query: "Whittier,_Denver",
+        pageId: 16284501
     },
-    43: {
+    43: {//Lincoln Park 
         restaurantCount: 25,
         barCount: 10,
         brewerieCount: 8,
         parks: 2,
         hipsterScore: 4,
+        query: "Lincoln_Park,_Denver",
+        pageId: 18312107
     },
-    44: {
+    44: {//Montclair
         restaurantCount: 25,
         barCount: 7,
         brewerieCount: 1,
         parks: 4,
         hipsterScore: 3,
+        query: "Montclair,_Denver",
+        pageId: 8747548
     },
-    45: {
+    45: {//Barnum 
         restaurantCount: 11,
         barCount: 5,
         brewerieCount: 2,
         parks: 2,
         hipsterScore: 3,
+        query: "Barnum,_Denver",
+        pageId: 23129884
     },
-    46: {
+    46: {//North Capitol Hill 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 9,
         parks: 4,
         hipsterScore: 5,
+        query: "North_Capitol_Hill,_Denver",
+        pageId: 21137433
     },
-    47: {
+    47: {//Chery Creek 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
         parks: 3,
         hipsterScore: 3,
+        query: "Cherry_Creek,_Denver",
+        pageId: 5012574
     },
-    48: {
+    48: {//Platt Park N/A
         restaurantCount: 25,
         barCount: 20,
         brewerieCount: 1,
         parks: 3,
         hipsterScore: 3,
     },
-    49: {
+    49: {//Baker
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
         parks: 3,
         hipsterScore: 4.5,
+        query: "Baker,_Denver",
+        pageId: 6339055
     },
-    50: {
+    50: {//Goldsmith N/A
         restaurantCount: 16,
         barCount: 11,
         brewerieCount: 0,
         parks: 1,
         hipsterScore: 2,
     },
-    51: {
+    51: {//Barnum West N/A
         restaurantCount: 7,
         barCount: 5,
         brewerieCount: 0,
         parks: 1,
         hipsterScore: 2,
     },
-    52: {
+    52: {//Cole
         restaurantCount: 5,
         barCount: 4,
         brewerieCount: 9,
         parks: 2,
         hipsterScore: 4.5,
+        query: "Cole,_Denver",
+        pageId: 23308019
     },
-    53: {
+    53: {//Belcaro 
         restaurantCount: 25,
         barCount: 14,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 2,
+        query: "Belcaro,_Denver",
+        pageId: 23472623
     },
-    54: {
+    54: {//Clayton 
         restaurantCount: 11,
         barCount: 1,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
+        query: "Clayton,_Denver",
+        pageId: 35116316
     },
-    55: {
+    55: {//Southmoor Park N/A
         restaurantCount: 21,
         barCount: 3,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 3,
     },
-    56: {
+    56: {//Union Station 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 13,
         parks: 4,
         hipsterScore: 4,
+        query: "Union_Station,_Denver_(neighborhood)",
+        pageId: 24157843
     },
-    57: {
+    57: {//City Park West
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 3,
         parks: 4,
         hipsterScore: 4,
+        query: "City_Park_West,_Denver",
+        pageId: 22215442
     },
-    58: {
+    58: {//Regis
         restaurantCount: 16,
         barCount: 0,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 2,
+        query: "Regis,_Denver",
+        pageId: 29137994
     },
-    59: {
+    59: {//Kennedy N/A
         restaurantCount: 8,
         barCount: 7,
         brewerieCount: 0,
         parks: 5,
         hipsterScore: 2,
     },
-    60: {
+    60: {//Chaffee Park 
         restaurantCount: 5,
         barCount: 3,
         brewerieCount: 2,
         parks: 3,
         hipsterScore: 3,
+        query: "Chaffee_Park,_Denver",
+        pageId: 22836270
     },
-    61: {
+    61: {//Cory-Merril N/A
         restaurantCount: 25,
         barCount: 10,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    62: {
+    62: {//Valverde 
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 2,
         parks: 1,
         hipsterScore: 3,
+        query: "Valverde,_Denver",
+        pageId: 23024501
     },
-    63: {
+    63: {//Globeville
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 1,
         parks: 3,
         hipsterScore: 3,
+        query: "Globeville,_Denver",
+        pageId: 21547118
     },
-    64: {
+    64: {//Wellshire N/A
         restaurantCount: 4,
         barCount: 5,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    65: {
+    65: {//Central Business District
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 10,
         parks: 2,
         hipsterScore: 5,
     },
-    66: {
+    66: {//Indian Creek N/A
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 2,
         parks: 2,
         hipsterScore: 3,
     },
-    67: {
+    67: {//Skyland n/a
         restaurantCount: 14,
         barCount: 3,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    68: {
+    68: {//Country Club 
         restaurantCount: 25,
         barCount: 8,
         brewerieCount: 0,
         parks: 4,
         hipsterScore: 2,
+        query: "Country_Club,_Denver",
+        pageId: 19897044
     },
-    69: {
+    69: {//City Park 
         restaurantCount: 25,
         barCount: 18,
         brewerieCount: 2,
         parks: 5,
         hipsterScore: 3,
+        query: "City_Park,_Denver",
+        pageId: 6326701
     },
-    70: {
+    70: {//Rosedale N/A
         restaurantCount: 25,
         barCount: 4,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    71: {
+    71: {//Jefferson Park 
         restaurantCount:25, 
         barCount: 19,
         brewerieCount: 6,
         parks: 4,
-        hipsterScore: 1
+        hipsterScore: 1,
+        query: "Jefferson_Park,_Denver",
+        pageId: 5554275
     },
-    72: {
+    72: {//Overland n/a
         restaurantCount: 25,
         barCount: 15,
         brewerieCount: 8,
         parks: 4,
         hipsterScore: 5,
     },
-    73: {
+    73: {//Civic Center
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
         parks: 3,
         hipsterScore: 5,
+        query: "Civic_Center,_Denver",
+        pageId: 2237848
     },
-    74: {
+    74: {//Sun Valley 
         restaurantCount: 5,
         barCount: 1,
         brewerieCount: 4,
         parks: 3,
         hipsterScore: 3,
+        query: "Sun_Valley,_Denver",
+        pageId: 11490364
     },
-    75: {
+    75: {//Stapleton 
         restaurantCount: 25,
         barCount: 9,
         brewerieCount: 1,
         parks: 4,
         hipsterScore: 3,
+        query: "Stapleton,_Denver",
+        pageId: 23208598
     },
-    76: {
+    76: {//Dia 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 1,
+        query: "Stapleton_International_Airport",
+        pageId: 268465
     },
-    77: {
+    77: {//Auroria
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 3,
+        query: "Auraria,_Denver",
+        pageId: 1071669
     }
 }
 
+var queryURL = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
+            //create variable to pull neighborhood name from Local Storage
+            var name = localStorage.getItem("neighborhood");
+              $.ajax({
 
+              url: queryURL,
+              method: "GET"
+            }).done(function(response) {
+                JSON.stringify({response});
+                console.log(bigObject.details.placeInfo.pageId)
+                // console.log(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+                
+                $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+                  })
+
+
+
+ $("#initialSubmit").on("click", function() {
+    event.preventDefault();
+    console.log("click working");
+// function that calculates optimal fit
+// adds points to user match..... neighborhoods with the highest match number are the top 3
+    var userMatch = 0;
+    var matchArray = [];
+    // var userHipster =  $("#").val().trim();
+    // var houseMax = $("#").val().trim();
+    // var userParks = $("#").val().trim();
+    // var nighLife = $("#").val().trim();
+    var userHipster =  4;
+    var houseMax = 550000;
+    var userParks = 3;
+    var nighLife = true;
+    for (i=0; i < 78; i++) {
+        userMatch = 0;
+        
+        var bars = massiveObject[i].barCount;
+        var restaurants = massiveObject[i].restaurantCount;
+        var averagePrice = massiveObject[i].zindex;
+        var breweries =  massiveObject[i].brewerieCount;
+        var parks = massiveObject[i].parks;
+        var hipsterIndex = massiveObject[i].hipsterIndex;
+        var foodBar = (bars + restaurants);
+        // multiplies user input times neighborhood value
+        userMatch += userHipster * hipsterIndex ;
+        userMatch += userParks * parks;
+        
+        if (nighLife) {
+            userMatch += (foodBar/2) 
+        } else {
+            userMatch -= (foodBar/10)
+        }
+        if (averagePrice > houseMax) {
+            userMatch -= 30;
+        } ;
+        massiveObject[i].userMatch = userMatch;
+        matchArray.push(userMatch);
+    }
+    console.log(massiveObject);
+    var maxMatch = Math.max.apply(null, matchArray); 
+    var closeMatch = maxMatch - 1;
+    console.log(maxMatch);
+    for (i=0; i < 78; i++) {
+        var neighborhoodMatch = massiveObject[i].userMatch;
+        if (neighborhoodMatch > closeMatch) {
+            console.log(i+massiveObject[i]);
+            // print out button that takes to link
+        }
+    }
+ });
