@@ -731,19 +731,19 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
     }
 }
 
-var queryURL = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
-            //create variable to pull neighborhood name from Local Storage
-            var name = localStorage.getItem("neighborhood");
-              $.ajax({
+// var queryURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
+//             //create variable to pull neighborhood name from Local Storage
+//             var name = localStorage.getItem("neighborhood");
+//               $.ajax({
 
-              url: queryURL,
-              method: "GET"
-            }).done(function(response) {
-                JSON.stringify({response});
-                console.log(bigObject.details.placeInfo.pageId)
-                // console.log(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+//               url: queryURL,
+//               method: "GET"
+//             }).done(function(response) {
+//                 JSON.stringify({response});
+//                 console.log(bigObject.details.placeInfo.pageId)
+//                 // console.log(response.query.pages[bigObject.details.placeInfo.pageId].extract);
                 
-                $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
-                  })
+//                 $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+//                   })
 
 
