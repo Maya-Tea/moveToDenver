@@ -7,6 +7,7 @@ var price= bigObject.details.home_price;
 var imgSource=bigObject.details.placeInfo.imgSource;
 console.log(imgSource);
 var img=$('<img class="neighborhoodImg" src='+imgSource+'>');
+
 $("#neighborhoodImage").append(img);
 $("#neighborhoodName").html(name);
 
@@ -23,7 +24,7 @@ $(".homePrice").append("$"+price);
       zoom: 13,
 
       center: centerCoors
-});
+  });
 
    makePolygon();
    google.maps.Polygon.prototype.getBounds = function() {
@@ -50,7 +51,6 @@ $("#searchPlacesButton").click(function(){
 
 function makePolygon(){
 
-
    polyG=new google.maps.Polygon({
          
          paths: outlineCoors,
@@ -61,14 +61,7 @@ function makePolygon(){
          fillOpacity: 0
      });
    polyG.setMap(map);
-    //polygonListenerOver(biggestObject[i],polyG);
-    //polygonListenerOut(biggestObject[i],polyG);
-    //polygonListenerClick(biggestObject[i],polyG);
-
 } 
-
-
-
 
 var placeArray=[];
 function findPlaces(coor, type){
@@ -81,7 +74,7 @@ function findPlaces(coor, type){
       rankBy: google.maps.places.RankBy.PROMINENCE,
       //rankBy: google.maps.places.RankBy.DISTANCE,
       type: [type],
-      //query:'brewery'
+   
   }, usePlaceInfo);
 }
 
@@ -142,53 +135,25 @@ function displayTopRestaurants(top){
 }
 
 
+if(bigObject.details.placeInfo.query){
 
+  var queryURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
 
-var queryURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
+  //create variable to pull neighborhood name from Local Storage
+  var name = localStorage.getItem("neighborhood");
+  $.ajax({
 
-//create variable to pull neighborhood name from Local Storage
-var name = localStorage.getItem("neighborhood");
-$.ajax({
-
-  url: queryURL,
-  method: "GET"
-}).done(function(response) {
-JSON.stringify({response});
-//console.log(bigObject.details.placeInfo.pageId)
-  
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+  JSON.stringify({response});
+  //console.log(bigObject.details.placeInfo.pageId)
     
-    $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
-});
-
-function findPlacesText(coor,searchText){
-    infowindow = new google.maps.InfoWindow();
-    var service = new google.maps.places.PlacesService(map);
-    var request = {
-        location: coor,
-   // radius: 1609,
-   bounds: map.getBounds(),
-   rankBy: google.maps.places.RankBy.DISTANCE,
-   query: searchText
-};
-
-
-service = new google.maps.places.PlacesService(map);
-service.textSearch(request, usePlaceInfoText);
+      
+      $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+  });
 }
-function usePlaceInfoText(results, status, pagination) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      createMarker(results[i]);
-  }
-  pagination.nextPage();
-  
-  console.log(results.length);
-  display(results);
-  return results;
-      //console.log(results);
-  }
+else{
+  $("#neighborhoodInfo").append(name+" is a neighborhood in Denver Colorado");
 }
-function display(results){
-  console.log(results);
-}
+
