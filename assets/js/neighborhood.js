@@ -4,214 +4,178 @@
 
 
 //SEND THESE TO APIS!!!
- var bigObject=JSON.parse(localStorage.getItem("biggestObjectString"));
- var centerCoors=bigObject.details.coor;
- var outlineCoors=bigObject.coorInfo.coors;
- var name= bigObject.details.name;
+var bigObject=JSON.parse(localStorage.getItem("biggestObjectString"));
+var centerCoors=bigObject.details.coor;
+var outlineCoors=bigObject.coorInfo.coors;
+var name= bigObject.details.name;
 $("#neighborhoodName").html(name);
  // var long=JSON.parse(localStorage.getItem("long"));
  // var neighborhood=localStorage.getItem("neighborhood");
  console.log(bigObject);
 
-var map;
-var polyG;
-var infowindow;
+ var map;
+ var polyG;
+ var infowindow;
 
-function initMap() {
-     map= new google.maps.Map(document.getElementById('map'), {
+ function initMap() {
+   map= new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
 
       center: centerCoors
 
       
-    });
-     makePolygon();
-     google.maps.Polygon.prototype.getBounds = function() {
-        var bounds = new google.maps.LatLngBounds();
-        var paths = this.getPaths();
-        var path;        
-        for (var i = 0; i < paths.getLength(); i++) {
-            path = paths.getAt(i);
-            for (var ii = 0; ii < path.getLength(); ii++) {
-                bounds.extend(path.getAt(ii));
+  });
+   makePolygon();
+   google.maps.Polygon.prototype.getBounds = function() {
+    var bounds = new google.maps.LatLngBounds();
+    var paths = this.getPaths();
+    var path;        
+    for (var i = 0; i < paths.getLength(); i++) {
+        path = paths.getAt(i);
+        for (var ii = 0; ii < path.getLength(); ii++) {
+            bounds.extend(path.getAt(ii));
         }
     }
     return bounds;
-    }
-     map.fitBounds(polyG.getBounds());
-     $("#searchPlacesButton").click(function(){
-        var query=$("#searchPlacesText").val();
-        console.log(query);
-        findPlacesText(centerCoors,query);
-     });
+}
+map.fitBounds(polyG.getBounds());
+$("#searchPlacesButton").click(function(){
+    var query=$("#searchPlacesText").val();
+    console.log(query);
+    findPlacesText(centerCoors,query);
+});
 
-  //  findPlaces(centerCoors, 'restaurant');
+  findPlaces(centerCoors, 'restaurant');
 
 }
 
 function makePolygon(){
 
-  
-     polyG=new google.maps.Polygon({
+
+   polyG=new google.maps.Polygon({
          //paths: Barnum,
-        paths: outlineCoors,
-        strokeColor: 'blue',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: 'green',
-        fillOpacity: 0
-      });
-       polyG.setMap(map);
+         paths: outlineCoors,
+         strokeColor: 'blue',
+         strokeOpacity: 0.8,
+         strokeWeight: 2,
+         fillColor: 'green',
+         fillOpacity: 0
+     });
+   polyG.setMap(map);
     //polygonListenerOver(biggestObject[i],polyG);
     //polygonListenerOut(biggestObject[i],polyG);
     //polygonListenerClick(biggestObject[i],polyG);
 
-   
+
 } 
 
 
-function findPlacesText(coor,searchText){
-    infowindow = new google.maps.InfoWindow();
-    var service = new google.maps.places.PlacesService(map);
- var request = {
-    location: coor,
-   // radius: 1609,
-   bounds: map.getBounds(),
-   rankBy: google.maps.places.RankBy.DISTANCE,
-    query: searchText
-  };
 
 
-  service = new google.maps.places.PlacesService(map);
-  service.textSearch(request, usePlaceInfoText);
-}
-function usePlaceInfoText(results, status, pagination) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      createMarker(results[i]);
-    }
-  pagination.nextPage();
-  
-      console.log(results.length);
-      display(results);
-      return results;
-      //console.log(results);
-  }
-}
-function display(results){
-  console.log(results);
-}
-
-
-  function findPlaces(coor, type){
-      infowindow = new google.maps.InfoWindow();
+var placeArray=[];
+function findPlaces(coor, type){
+  infowindow = new google.maps.InfoWindow();
 
   var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
+  service.nearbySearch({
       location: coor,
       radius: 1609,//meters in mile
       rankBy: google.maps.places.RankBy.PROMINENCE,
       //rankBy: google.maps.places.RankBy.DISTANCE,
       type: [type],
       //query:'brewery'
-    }, usePlaceInfo);
-  }
+  }, usePlaceInfo);
+}
 
-  
 
-  function usePlaceInfo(results, status, pagination) {
-     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      
+
+function usePlaceInfo(results, status, pagination) {
+   if (status === google.maps.places.PlacesServiceStatus.OK) {
+
       var numBusinesses=Object.keys(results).length;
       for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
-      pagination.nextPage();
-  
-      console.log(results.length);
+        placeArray.push(results[i])
     }
-  }
+    console.log(placeArray);
+    createMarker(placeArray);
+    pagination.nextPage();
+
+    console.log(results.length);
+}
+}
 //var markerArray;
-  function createMarker(place) {
-    var placeLoc = place.geometry.location;
+var topRated=[];
+function createMarker(placeArray) {
+    for(var i=0;i<placeArray.length;i++){
+    var placeLoc = placeArray[i].geometry.location;
     var marker = new google.maps.Marker({
       map: map,
-      position: place.geometry.location
-    });
+      position: placeArray[i].geometry.location
+  });
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
-    });
-    //markerArray.push(marker);
-  }
-console.log("yes jsdnkjsnfkj")
 
- $("#initialSubmit").on("click", function() {
-    event.preventDefault();
-    console.log("click working");
-// function that calculates optimal fit
-// adds points to user match..... neighborhoods with the highest match number are the top 3
-    var userMatch = 0;
-    var matchArray = [];
-    // var userHipster =  $("#").val().trim();
-    // var houseMax = $("#").val().trim();
-    // var userParks = $("#").val().trim();
-    // var nighLife = $("#").val().trim();
-    var userHipster =  4;
-    var houseMax = 550000;
-    var userParks = 3;
-    var nighLife = true;
-    for (i=0; i < 78; i++) {
-        userMatch = 0;
-        
-        var bars = massiveObject[i].barCount;
-        var restaurants = massiveObject[i].restaurantCount;
-        var averagePrice = massiveObject[i].zindex;
-        var breweries =  massiveObject[i].brewerieCount;
-        var parks = massiveObject[i].parks;
-        var hipsterIndex = massiveObject[i].hipsterIndex;
-        var foodBar = (bars + restaurants);
-        // multiplies user input times neighborhood value
-        userMatch += userHipster * hipsterIndex ;
-        userMatch += userParks * parks;
-        
-        if (nighLife) {
-            userMatch += (foodBar/2) 
-        } else {
-            userMatch -= (foodBar/10)
-        }
-        if (averagePrice > houseMax) {
-            userMatch -= 30;
-        } ;
-        massiveObject[i].userMatch = userMatch;
-        matchArray.push(userMatch);
+   
+
+
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
     }
-    console.log(massiveObject);
-    var maxMatch = Math.max.apply(null, matchArray); 
-    var closeMatch = maxMatch - 1;
-    console.log(maxMatch);
-    for (i=0; i < 78; i++) {
-        var neighborhoodMatch = massiveObject[i].userMatch;
-        if (neighborhoodMatch > closeMatch) {
-            console.log(i+massiveObject[i]);
-            // print out button that takes to link
-        }
+    return function (a,b) {
+        var result = (a[property] > b[property]) ? -1 : (a[property] < b[property]) ? 1 : 0;
+        return result * sortOrder;
     }
- });
+}
 
- var queryURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
+
+
+
+var queryURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
             //create variable to pull neighborhood name from Local Storage
-            var name = localStorage.getItem("neighborhood");
-              $.ajax({
+var name = localStorage.getItem("neighborhood");
+$.ajax({
 
-              url: queryURL,
-              method: "GET"
-            }).done(function(response) {
-                JSON.stringify({response});
-                console.log(bigObject.details.placeInfo.pageId)
-                // console.log(response.query.pages[bigObject.details.placeInfo.pageId].extract);
-                
-                $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
-                  })
+  url: queryURL,
+  method: "GET"
+}).done(function(response) {
+JSON.stringify({response});
+console.log(bigObject.details.placeInfo.pageId)
+    // console.log(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+    
+    $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+});
+
+function findPlacesText(coor,searchText){
+    infowindow = new google.maps.InfoWindow();
+    var service = new google.maps.places.PlacesService(map);
+    var request = {
+        location: coor,
+   // radius: 1609,
+   bounds: map.getBounds(),
+   rankBy: google.maps.places.RankBy.DISTANCE,
+   query: searchText
+};
+
+
+service = new google.maps.places.PlacesService(map);
+service.textSearch(request, usePlaceInfoText);
+}
+function usePlaceInfoText(results, status, pagination) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+  }
+  pagination.nextPage();
+  
+  console.log(results.length);
+  display(results);
+  return results;
+      //console.log(results);
+  }
+}
+function display(results){
+  console.log(results);
+}

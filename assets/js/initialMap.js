@@ -129,13 +129,13 @@ function toggleWeedmap(){
     $('#mapDiv').append(loadingGif);
     weedClickedOnce=true;
     //heatOn=true;
-
+    
     setTimeout(function(){
       loadingGif.remove();
       $("#weedHeatMapButton").text("Toggle 420 Heatmap");
       console.log(pointsWeedMap);
       makeWeedMap(pointsWeedMap);
-    },1000)
+    },3000)
   }
 
   else{
@@ -171,7 +171,8 @@ function makeWeedMap(points){
           data: points,
           map: map
         });
-    weedmap.set('opacity', 0.4);
+    weedmap.set('opacity', 0.6);
+    weedmap.setMap(map);
 }
 
 function findPlacesRadar(keyword) {
@@ -207,7 +208,7 @@ function makeHeatMap(points){
           data: points,
           map: map
         });
-    heatmap.set('opacity', 0.4);
+    heatmap.set('opacity', 0.6);
 }
 
 
@@ -435,10 +436,10 @@ function ZillowAPI () {
     // regional url gives out 1.) average house price 2.)neighborhood link 3.)latitude&longitude 4.)
     var regionURL = ("http://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=" + apiKey + "&state=Co&city=denver&childtype=neighborhood");
     
-    
+    //$.ajax({url: “https://cors-anywhere.herokuapp.com/yourURLhere
     $.ajax({
         
-        url: regionURL,
+        url: "https://cors-anywhere.herokuapp.com/"+regionURL,
         method: "GET"
     }).done(function(response){
         console.log("yes");
@@ -516,5 +517,58 @@ $("#validate").on("click", function () {
 
 
 
-    })  
+    })
+
+$("#initialSubmit").on("click", function() {
+    event.preventDefault();
+    console.log("click working");
+// function that calculates optimal fit
+// adds points to user match..... neighborhoods with the highest match number are the top 3
+var userMatch = 0;
+var matchArray = [];
+    // var userHipster =  $("#").val().trim();
+    // var houseMax = $("#").val().trim();
+    // var userParks = $("#").val().trim();
+    // var nighLife = $("#").val().trim();
+    var userHipster =  4;
+    var houseMax = 550000;
+    var userParks = 3;
+    var nighLife = true;
+    for (i=0; i < 78; i++) {
+        userMatch = 0;
+        
+        var bars = massiveObject[i].barCount;
+        var restaurants = massiveObject[i].restaurantCount;
+        var averagePrice = massiveObject[i].zindex;
+        var breweries =  massiveObject[i].brewerieCount;
+        var parks = massiveObject[i].parks;
+        var hipsterIndex = massiveObject[i].hipsterIndex;
+        var foodBar = (bars + restaurants);
+        // multiplies user input times neighborhood value
+        userMatch += userHipster * hipsterIndex ;
+        userMatch += userParks * parks;
+        
+        if (nighLife) {
+            userMatch += (foodBar/2) 
+        } else {
+            userMatch -= (foodBar/10)
+        }
+        if (averagePrice > houseMax) {
+            userMatch -= 30;
+        } ;
+        massiveObject[i].userMatch = userMatch;
+        matchArray.push(userMatch);
+    }
+    console.log(massiveObject);
+    var maxMatch = Math.max.apply(null, matchArray); 
+    var closeMatch = maxMatch - 1;
+    console.log(maxMatch);
+    for (i=0; i < 78; i++) {
+        var neighborhoodMatch = massiveObject[i].userMatch;
+        if (neighborhoodMatch > closeMatch) {
+            console.log(i+massiveObject[i]);
+            // print out button that takes to link
+        }
+    }
+});
  

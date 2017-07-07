@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Ground Overlays</title>
     <head>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -11,12 +12,24 @@
  
   </head>
   <body>
+  <div class = "wrapper">
 
-  <h1 id="neighborhoodName"></h1>
-  <input type=text id='searchPlacesText'>
-  <button id='searchPlacesButton'>Search in neighborhood</button>
-  <div id="map"></div>
-  <div id="neighborhoodInfo"> </div>
+  <div class = "neighborhoodName"> <h1 id="neighborhoodName"></h1></div>
+
+  <!--<input type=text id='searchPlacesText'>
+  <button id='searchPlacesButton'>Search in neighborhood</button>-->
+
+  <div id="map" class= "neighborhoodMap"></div>
+
+  <div id="neighborhoodInfo" class = "neighborhoodBox"> </div>
+
+  <div id = "neighborhoodImage" class = "neighborhoodImage"> Image </div>
+
+  <div class = "averageHomePrice"> Average Home Price </div>
+
+  <div class = "topRestaurants"> Top Restaurants </div>
+
+  </div>
   <script src="assets/js/neighborhood.js"></script>
   <script src="assets/js/initVars.js"></script>
   <script async defer
