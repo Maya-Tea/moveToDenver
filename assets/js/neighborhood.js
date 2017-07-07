@@ -132,29 +132,6 @@ function displayTopRestaurants(top){
     $("#topRestaurants").append(restItem);
     }
 }
-//var markerArray;8oy
-//
-// function createMarker(placeArray) {
-//     for(var i=0;i<placeArray.length;i++){
-//     var placeLoc = placeArray[i].geometry.location;
-//     var marker = new google.maps.Marker({
-//       map: map,
-//       position: placeArray[i].geometry.location
-//   });
-
-
-//     google.maps.event.addListener(marker, 'click', function() {
-//       infowindow.setContent(placeArray[i].name);
-//       infowindow.open(map, this);
-//   });
-  
-
-//     }
-//     findTopPlaces();
-   
-// }
-
-
 
 
 

@@ -16,12 +16,10 @@
   <body>
 
   <div class = "wrapper">
-     <div class= "jumbotron"> 
-      <h1>Moving to Denver?</h1>
-      <p>We'll let you know which neighborhood is the best fit for according to our hipster index along with some more functional options
-      </div>
-
-      <div class = "topButtons">
+     <div class= "header"> 
+      <h1 align="center" >Thinking of Calling Denver Home?</h1>
+      <p><b>You need to know exactly four things when moving to Denver: Price, Nightlife, Distance to Marijuana Dispenseries, and A Hipster Index. Luckliy, this site has all of that infomation right here at your fingertips.</b></p>
+      <h3> Damn, these heat maps are slick as fork!</h3>
       <button id="removeOverlayButton">Remove Overlay</button>
       <button onclick="toggleHeatmap()" id="hipHeatMapButton">Turn On Hipster Heatmap</button>
       <button onclick="toggleWeedmap()" id="weedHeatMapButton">Turn On 420 Heatmap</button>
@@ -39,50 +37,79 @@
       </div>
 
       <div class= "input">
-        <H3> Put an address in</H3>
-        <div id="floating-panel">
+        <H3> Pick a Neighborhood</H3>
+          <p> Click on a neighborhood on the map, and we will give you all the important information on that neighborhood </p>
+        <!--<div id="floating-panel">
           <input id="address" type="textbox" value="Denver, CO">
           <input id="submit" type="button" value="Geocode">
-        </div>
+        </div>-->
         <br>
         <H3>Or</H3>
+        <br>
           <!-- <div class= "row">
           <div class= "col-lg-6 col-xs-12">
           <div id="map">
           </div> -->
         <div class="well">
-          <h3> Find Your Perfect Neighborhood Match </h3>
+          <h3> Submit your Real Estate Preferences </h3>
+            <p> Fill out the dropdowns and submit, and we will tell you what your perfect neghborhood match is. </p>
           <form> 
             
               <div class= "hipsterScore"> 
-               <h5> Hipster Score</h5>
-               <input type="checkbox" id="hipster1">  1-3
+               <h5> What is the hipster density you are looking for in your next neighborhood</h5>
+               <div class="dropdown">
+              <button class="dropbtn">Hipster Score</button>
+              <div class="dropdown-content">
+              <a href="#">0</a>
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              </div>
+              </div>
+               <!--<input type="checkbox" id="hipster1">  1-3
               <br>
               <input type="checkbox" id="hipster2">  4-6
               <br>
-              <input type="checkbox" id="hipster3">  7-10
+              <input type="checkbox" id="hipster3">  7-10-->
             </div>
+
+            <br>
              
 
              <div class="housingPrices">
-              <h5> Housing Prices </h5>
-              <input type="checkbox" id="housing1">  1-3
+              <h5> How many millions of dollars are you looking to spend? </h5>
+              <div class="dropdown">
+              <button class="dropbtn"> Housing Price </button>
+              <div class="dropdown-content">
+              <a href="#"> Half A Million </a>
+              <a href="#"> One Million </a>
+              <a href="#"> No Limit </a>
+              </div>
+              </div>
+              <!--<input type="checkbox" id="housing1">  1-3
               <br>
               <input type="checkbox" id="housing2">  4-6
               <br>
-              <input type="checkbox" id="housing3">  7-10
+              <input type="checkbox" id="housing3">  7-10-->
             </div>
 
+            <br>
+
             <div class= "NightLife">
-              <h5> Entertainment </h5>
+              <h5> Are you a night owl or a shut in? </h5>
               <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Dropdown </button>
-              <div id="myDropdown" class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
+              <button class="dropbtn"> Nighlife </button>
+              <div class="dropdown-content">
+              <a href="#"> Crickets</a>
+              <a href="#"> Thumping Bass </a>
+              
               </div>
               </div>
+            
             </div>
+            <br>
             <button class="submit btn-sm btn-warning" id="initialSubmit"> Submit </button> 
           </form>
         </div>
@@ -99,9 +126,28 @@
 
           </div> -->
         <div class="comments">
+
+
+      <div class="panel-body">
+           <form>
+             <div class="form-group">
+               <label for="name">User Name </label>
+               <input type="text" class="form-control" id="nameInput" placeholder="Hipster Rob">
+             </div>
+             <br>
+             <div class="form-group">
+               <label for="role">Leave A Comment </label>
+               <input type="text" class="form-control" id="commentInput" placeholder="I love the Hipster Heat Map!">
+             </div>
+             
+       
+             <button type="submit" class="btn btn-default center-block" id="submit">Submit</button>
+           </form>
+         </div>
         <h4> Trending Comments </h4>
         <div id="trendingComment"> New Comment </div>
         </div>
+     
       </div>
              <div id="topRestuarants"><h2>Top Restuarants</h2></div>
 
@@ -113,3 +159,9 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb44GEujIrnkFexqREwJEXfrOvy5MYlJo&callback=initMap&libraries=places,visualization">
 </script>
+<!--  async defer -->
+</body>
+
+   
+
+</html>
