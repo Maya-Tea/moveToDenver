@@ -517,4 +517,43 @@ $("#validate").on("click", function () {
 
 
     })  
- 
+
+//PUSH VALID EMAIL TO FIREBASE FIRST//Maybe just local storage???
+var name = "";
+var comments = "";
+
+$("#submit").on("click", function(event) {
+  event.preventDefault();
+      // Grabbed values from comment box
+      name = $("#nameInput").val();
+      comments = $("#commentInput").val();
+      //grab email from local storage??
+      
+      database.ref().push({
+        user: name,
+        comments: comments
+        
+
+      });
+      $("#nameInput").empty();
+      $("#commentInput").empty();
+      
+  }); 
+
+// database.ref().on("child_added", function(snapshot) {
+//   var sv = snapshot.val();
+
+      
+//       var userName = $("<div>" + sv.name +  "</div>");
+//       var newComments = $("<div>" + sv.comments + "</div>");
+    
+
+
+//       // Change the HTML to reflect
+//       $("#comments").append(newComments);
+//       $("#userName").append(userName);
+     
+
+//  }, function(errorObject) {
+//   console.log("Errors handled: " + errorObject.code);
+//  });
