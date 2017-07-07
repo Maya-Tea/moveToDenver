@@ -1,9 +1,4 @@
-//console.log(localStorage.getItem("lat"));
-//console.log(localStorage.getItem("long"));
-//console.log(localStorage.getItem("neighborhood"));
 
-
-//SEND THESE TO APIS!!!
 var bigObject=JSON.parse(localStorage.getItem("biggestObjectString"));
 var centerCoors=bigObject.details.coor;
 var outlineCoors=bigObject.coorInfo.coors;
@@ -12,8 +7,7 @@ var price= bigObject.details.home_price;
 $("#neighborhoodName").html(name);
 
 $(".homePrice").append("$"+price);
- // var long=JSON.parse(localStorage.getItem("long"));
- // var neighborhood=localStorage.getItem("neighborhood");
+ 
  console.log(bigObject);
 
  var map;
@@ -43,7 +37,6 @@ $(".homePrice").append("$"+price);
 map.fitBounds(polyG.getBounds());
 $("#searchPlacesButton").click(function(){
     var query=$("#searchPlacesText").val();
-    console.log(query);
     findPlacesText(centerCoors,query);
 });
 
@@ -55,7 +48,7 @@ function makePolygon(){
 
 
    polyG=new google.maps.Polygon({
-         //paths: Barnum,
+         
          paths: outlineCoors,
          strokeColor: 'blue',
          strokeOpacity: 0.8,
@@ -67,7 +60,6 @@ function makePolygon(){
     //polygonListenerOver(biggestObject[i],polyG);
     //polygonListenerOut(biggestObject[i],polyG);
     //polygonListenerClick(biggestObject[i],polyG);
-
 
 } 
 
@@ -91,25 +83,19 @@ function findPlaces(coor, type){
 
 var topRated=[];
 
-function usePlaceInfo(results, status /*,pagination*/) {
+function usePlaceInfo(results, status) {
    if (status === google.maps.places.PlacesServiceStatus.OK) {
 
       var numBusinesses=Object.keys(results).length;
       for (var i = 0; i < results.length; i++) {
         placeArray.push(results[i])
     }
-
-    console.log(placeArray);
-    //createMarker(placeArray);
-    //pagination.nextPage();
-
-    //console.log(results.length);
+    
     setTimeout(function(){
         topRated=placeArray.sort(dynamicSort("rating"));
         var numToSplice=topRated.length-10;
         topRated.splice(10,numToSplice);
-        console.log(topRated);
-        
+               
         displayTopRestaurants(topRated);
     
     },1000)
@@ -121,7 +107,7 @@ function displayTopRestaurants(top){
         if(!top[i].price_level){
             top[i].price_level="?";
         }
-    console.log(top[2].name);
+ 
     var restItem=$('<div class="topRestaurant">');
     var restName=$('<span class="topName">');
     var restRating=$('<span class="topRate">');
@@ -155,7 +141,8 @@ function displayTopRestaurants(top){
 
 
 var queryURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&origin=*&exintro=&titles=" + bigObject.details.placeInfo.query + "";
-            //create variable to pull neighborhood name from Local Storage
+
+//create variable to pull neighborhood name from Local Storage
 var name = localStorage.getItem("neighborhood");
 $.ajax({
 
@@ -163,8 +150,8 @@ $.ajax({
   method: "GET"
 }).done(function(response) {
 JSON.stringify({response});
-console.log(bigObject.details.placeInfo.pageId)
-    // console.log(response.query.pages[bigObject.details.placeInfo.pageId].extract);
+//console.log(bigObject.details.placeInfo.pageId)
+  
     
     $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
 });

@@ -60,10 +60,6 @@
    }
 
 
-  //  span.onclick = function() {
-  //   modal.style.display = "none";
-  // }
-
 
    function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -107,7 +103,7 @@
     heatClickedOnce=true;
     //heatOn=true;
 
-    setTimeout(function(){
+   setTimeout(function(){
       loadingGif.remove();
       $("#hipHeatMapButton").text("Toggle Hipster Heatmap");
       console.log(pointsHeatMap);
@@ -348,19 +344,7 @@ hipsterIndex();
     }); 
     
   }
- 
-    function addListenersOnRectangleClick(objectRect, rectangle) {
-    google.maps.event.addListener(rectangle, 'click', function (event) {
-      var lat = event.latLng.lat();
-      var long = event.latLng.lng();
-      
-    localStorage.setItem("neighborhood", objectRect.name);
-    localStorage.setItem("lat",JSON.stringify(lat));
-    localStorage.setItem("long",JSON.stringify(long));
-    window.location.href="neighborhood.html";
-    }); 
-    
-  } 
+
   
 
 function makePolygons(){
