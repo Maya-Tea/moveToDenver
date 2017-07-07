@@ -93,6 +93,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         brewerieCount:1 ,
         parks:1 ,
         hipsterScore:0 ,
+        imgSource: "assets/images/neighborhoods/montbello-min.jpg",
         query: "Montbello,_Denver",
         pageId: 3219217
     },
@@ -102,7 +103,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         brewerieCount:0 ,
         parks: 0,
         hipsterScore:0 ,
-        
+        imgSource: "assets/images/neighborhoods/montbello-min.jpg"
     },
     2: { name:"Hampden",
         restaurantCount:15 ,
@@ -110,6 +111,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         brewerieCount:0 ,
         parks: 3,
         hipsterScore: 1,
+        imgSource: "assets/images/neighborhoods/den_1-min.jpg"
 
     },
     3: { name:"Westwood",
@@ -118,6 +120,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         brewerieCount: 0,
         parks:4 ,
         hipsterScore: 2,
+        imgSource: "assets/images/neighborhoods/westwood-min.jpg"
     },
     4: {name:"Capitol Hill",
         restaurantCount: 25 ,
@@ -126,10 +129,12 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         parks: 2 ,
         hipsterScore:3 ,
         query: "Capitol_Hill_(Denver)",
-        pageId: 2084095
+        pageId: 2084095,
+        imgSource: "assets/images/neighborhoods/capital_hill-min.jpg"
 
     },
     5: {name:"Hampden South",
+        imgSource: "assets/images/neighborhoods/den_2-min.jpg",
         restaurantCount: 6,
         barCount: 3,
         brewerieCount: 0,
@@ -139,6 +144,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 21275859 
     },
     6: {name:"Mar Lee",
+        imgSource: "assets/images/neighborhoods/den_3-min.jpg",
         restaurantCount: 8 ,
         barCount:5 ,
         brewerieCount: 0,
@@ -146,6 +152,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 0
     },
     7: {name:"Windsor",
+        imgSource: "assets/images/neighborhoods/den_4-min.jpg",
         restaurantCount: 8,
         barCount: 3,
         brewerieCount: 1,
@@ -153,6 +160,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 0
     },
     8: {name:"Five Points",
+        imgSource: "assets/images/neighborhoods/five_points-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 18,
@@ -160,6 +168,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 5,
     },
     9: {name:"Virgina Village",
+        imgSource: "assets/images/neighborhoods/den_5-min.jpg",
         restaurantCount: 25,
         barCount: 9,
         brewerieCount: 2,
@@ -169,6 +178,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 21139686
     },
     10: {name:"Washington Virgina Vale",
+        imgSource: "assets/images/neighborhoods/den_6-min.jpg",
         restaurantCount: 25,
         barCount: 7,
         brewerieCount: 0,
@@ -178,6 +188,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 39540485
     },
     11: {name:"Speer",
+        imgSource: "assets/images/neighborhoods/speer-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
@@ -187,6 +198,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22864873
     },
     12: {name:"Harvey Park",
+        imgSource: "assets/images/neighborhoods/harvey-min.jpeg",
         restaurantCount: 3,
         barCount: 5,
         brewerieCount: 0,
@@ -194,13 +206,15 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     13: {name:"East Colfax",
+        imgSource: "assets/images/neighborhoods/east_colfax-min.jpeg",
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 0,
         parks: 0,
         hipsterScore: 1,
     },
-    14: {name:"Congress Park", 
+    14: {name:"Congress Park",
+        imgSource: "assets/images/neighborhoods/congress_park-min.jpg", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 2,
@@ -211,6 +225,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
 
     },
     15: {name:"Sunnyside", 
+        imgSource: "assets/images/neighborhoods/sunnyside-min.jpg",
         restaurantCount: 13,
         barCount: 2,
         brewerieCount: 3,
@@ -221,6 +236,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
     },
 // could not find it
     16: {name:"Marston",
+        imgSource: "assets/images/neighborhoods/den_2-min.jpg",
         restaurantCount: 25,
         barCount: 5,
         brewerieCount: 0,
@@ -228,6 +244,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 0,
     },
     17: {name:"Ruby Hill",
+        imgSource: "assets/images/neighborhoods/ruby_denver-min.jpg",
         restaurantCount: 20,
         barCount: 2,
         brewerieCount: 0,
@@ -237,6 +254,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 53527989
     },
     18: {name:"Bear Valley",
+        imgSource: "assets/images/neighborhoods/den_4-min.jpg",
         restaurantCount: 21,
         barCount: 3,
         brewerieCount: 0,
@@ -245,6 +263,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
 
     },
     19: {name:"University",
+        imgSource: "assets/images/neighborhoods/University-min.jpg",
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 1,
@@ -254,6 +273,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 4778647
     },
     20: {name:"West Highland",
+        imgSource: "assets/images/neighborhoods/Highlands-min.jpg",
         restaurantCount: 25,
         barCount: 22,
         brewerieCount: 3,
@@ -261,6 +281,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 4,
     },
     21: {name:"North Park Hill",
+        imgSource: "assets/images/neighborhoods/den_1-min.jpg",
         restaurantCount: 18,
         barCount: 7,
         brewerieCount: 1,
@@ -268,6 +289,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 3,
     },
     22: {name:"West Colfax",
+        imgSource: "assets/images/neighborhoods/west_colfax-min.jpg",
         restaurantCount: 16,
         barCount: 6,
         brewerieCount: 0,
@@ -277,6 +299,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22920188
     },
     23: {name:"Harvey Park South",
+        imgSource: "assets/images/neighborhoods/harvey-min.jpeg",
         restaurantCount: 19,
         barCount: 5,
         brewerieCount: 0,
@@ -284,6 +307,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     24: {name:"Lowry Field", 
+        imgSource: "assets/images/neighborhoods/lowry-min.jpg",
         restaurantCount: 13,
         barCount: 6,
         brewerieCount: 0,
@@ -292,7 +316,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Lowry,_Denver",
         pageId: 8747507
     },
-    25: {name:"Villa Park", 
+    25: {name:"Villa Park",
+        imgSource: "assets/images/neighborhoods/den_2-min.jpg", 
         restaurantCount: 5,
         barCount: 3,
         brewerieCount: 1,
@@ -302,11 +327,15 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 21435127
     },
     26: {name:"South Park Hill",
+    imgSource: "assets/images/neighborhoods/den_6-min.jpg",
+        restaurantCount: 25,
+        barCount: 10,
         brewerieCount: 0,
         parks: 2,
         hipsterScore: 2,
     },
-    27: {name:"Highland", 
+    27: {name:"Highland",
+        imgSource: "assets/images/neighborhoods/Highlands-min.jpg", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 12,
@@ -315,7 +344,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Highland,_Denver",
         pageId: 6163366
     },
-    28: {name:"Cheesman Park", 
+    28: {name:"Cheesman Park",
+        imgSource: "assets/images/neighborhoods/cheesman_park-min.jpg", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 3,
@@ -325,6 +355,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 15183274
     },
     29: {name:"Athmar Park", 
+        imgSource: "assets/images/neighborhoods/athmar_park-min.jpg",
         restaurantCount: 25,
         barCount: 4,
         brewerieCount: 0,
@@ -334,6 +365,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 15142405
     },
     30: {name:"Fort Logan",
+        imgSource: "assets/images/neighborhoods/den_5-min.jpg",
         restaurantCount: 3,
         barCount: 2,
         brewerieCount: 0,
@@ -341,6 +373,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 1,
     },
     31: {name:"Hilltop",
+    imgSource: "assets/images/neighborhoods/hiltop-min.JPG",
         restaurantCount: 9,
         barCount: 0,
         brewerieCount: 0,
@@ -350,6 +383,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22028224
     },
     32: { name:"Northeast Park Hill",
+        imgSource: "assets/images/neighborhoods/den_6-min.jpg",
         restaurantCount: 9,
         barCount: 2,
         brewerieCount: 0,
@@ -357,6 +391,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 1,
     },
     33: {name:"Berkeley", 
+        imgSource: "assets/images/neighborhoods/den_5-min.jpg",
         restaurantCount: 25,
         barCount: 15,
         brewerieCount: 4,
@@ -366,6 +401,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 10734071
     },
     34: {name:"University Park",
+        imgSource: "assets/images/neighborhoods/university_park-min.jpg",
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 4,
@@ -373,6 +409,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 4,
     },
     35: {name:"Sloan Lake", 
+        imgSource: "assets/images/neighborhoods/sloan_lake-min.jpg",
         restaurantCount: 16,
         barCount: 11,
         brewerieCount: 3,
@@ -382,6 +419,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 18710805
     },
     36: {name:"Elyria Swansea",
+        imgSource: "assets/images/neighborhoods/elyria-min.jpeg",
         restaurantCount: 4,
         barCount: 5,
         brewerieCount: 2,
@@ -391,6 +429,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22524481
     },
     37: {name:"Washington Park", 
+        imgSource: "assets/images/neighborhoods/wasington_park-min.JPG",
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 0,
@@ -400,6 +439,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 3347175
     },
     38: {name:"Washington Park West",
+        imgSource: "assets/images/neighborhoods/wasington_park-min.JPG",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
@@ -407,6 +447,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 3,
     },
     39: {name:"College View/South Platte",
+        imgSource: "assets/images/neighborhoods/south_platte-min.jpg",
         restaurantCount: 7,
         barCount: 6,
         brewerieCount: 1,
@@ -414,6 +455,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 3,
     },
     40: {name:"Hale",
+        imgSource: "assets/images/neighborhoods/hale-min.jpeg",
         restaurantCount: 25,
         barCount: 5,
         brewerieCount: 1,
@@ -423,6 +465,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 31266062
     },
     41: {name:"University Hills",
+        imgSource: "assets/images/neighborhoods/University_Hills-min.jpg",
         restaurantCount: 11,
         barCount: 1,
         brewerieCount: 0,
@@ -430,6 +473,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 1,
     },
     42: {name:"Whittier", 
+        imgSource: "assets/images/neighborhoods/den_2-min.jpg",
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 6,
@@ -438,7 +482,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Whittier,_Denver",
         pageId: 16284501
     },
-    43: {name:"Lincoln Park", 
+    43: {name:"Lincoln Park",
+        imgSource: "assets/images/neighborhoods/den_3-min.jpg", 
         restaurantCount: 25,
         barCount: 10,
         brewerieCount: 8,
@@ -448,6 +493,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 18312107
     },
     44: {name:"Montclair",
+        imgSource: "assets/images/neighborhoods/montclair-min.jpg",
         restaurantCount: 25,
         barCount: 7,
         brewerieCount: 1,
@@ -457,6 +503,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 8747548
     },
     45: {name:"Barnum", 
+        imgSource: "assets/images/neighborhoods/barnum-min.jpg",
         restaurantCount: 11,
         barCount: 5,
         brewerieCount: 2,
@@ -466,6 +513,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 23129884
     },
     46: {name:"North Capitol Hill", 
+        imgSource: "assets/images/neighborhoods/capital_hill-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 9,
@@ -474,7 +522,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "North_Capitol_Hill,_Denver",
         pageId: 21137433
     },
-    47: {name:"Chery Creek", 
+    47: {name:"Chery Creek",
+        imgSource: "assets/images/neighborhoods/Cherry_Creek-min.jpg", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
@@ -484,6 +533,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 5012574
     },
     48: {name:"Platt Park",
+        imgSource: "assets/images/neighborhoods/platt_park-min.jpg",
         restaurantCount: 25,
         barCount: 20,
         brewerieCount: 1,
@@ -491,6 +541,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 3,
     },
     49: {name:"Baker",
+        imgSource: "assets/images/neighborhoods/baker-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
@@ -500,6 +551,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 6339055
     },
     50: {name:"Goldsmith",
+        imgSource: "assets/images/neighborhoods/den_4-min.jpg",
         restaurantCount: 16,
         barCount: 11,
         brewerieCount: 0,
@@ -507,6 +559,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     51: {name:"Barnum West",
+        imgSource: "assets/images/neighborhoods/barnum-min.jpg",
         restaurantCount: 7,
         barCount: 5,
         brewerieCount: 0,
@@ -514,6 +567,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     52: {name:"Cole",
+        imgSource: "assets/images/neighborhoods/den_1-min.jpg",
         restaurantCount: 5,
         barCount: 4,
         brewerieCount: 9,
@@ -523,6 +577,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 23308019
     },
     53: {name:"Belcaro", 
+        imgSource: "assets/images/neighborhoods/Belcaro-min.jpg",
         restaurantCount: 25,
         barCount: 14,
         brewerieCount: 0,
@@ -531,7 +586,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Belcaro,_Denver",
         pageId: 23472623
     },
-    54: {name:"Clayton", 
+    54: {name:"Clayton",
+        imgSource: "assets/images/neighborhoods/den_5-min.jpg", 
         restaurantCount: 11,
         barCount: 1,
         brewerieCount: 0,
@@ -541,6 +597,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 35116316
     },
     55: {name:"Southmoor Park",
+        imgSource: "assets/images/neighborhoods/den_1-min.jpg",
         restaurantCount: 21,
         barCount: 3,
         brewerieCount: 0,
@@ -548,6 +605,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 3,
     },
     56: {name:"Union Station", 
+        imgSource: "assets/images/neighborhoods/union_station-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 13,
@@ -557,6 +615,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 24157843
     },
     57: {name:"City Park West",
+        imgSource: "assets/images/neighborhoods/city_park-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 3,
@@ -566,6 +625,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22215442
     },
     58: {name:"Regis",
+        imgSource: "assets/images/neighborhoods/regis-min.jpg",
         restaurantCount: 16,
         barCount: 0,
         brewerieCount: 0,
@@ -575,13 +635,15 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 29137994
     },
     59: {name:"Kennedy",
+        imgSource: "assets/images/neighborhoods/den_6-min.jpg",
         restaurantCount: 8,
         barCount: 7,
         brewerieCount: 0,
         parks: 5,
         hipsterScore: 2,
     },
-    60: {name:"Chaffee Park", 
+    60: {name:"Chaffee Park",
+        imgSource: "assets/images/neighborhoods/chaffe_park-min.jpg",
         restaurantCount: 5,
         barCount: 3,
         brewerieCount: 2,
@@ -591,6 +653,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22836270
     },
     61: {name:"Cory-Merril",
+        imgSource: "assets/images/neighborhoods/den_1-min.jpg",
         restaurantCount: 25,
         barCount: 10,
         brewerieCount: 0,
@@ -598,6 +661,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     62: {name:"Valverde", 
+        imgSource: "assets/images/neighborhoods/den_2-min.jpg",
         restaurantCount: 25,
         barCount: 1,
         brewerieCount: 2,
@@ -607,6 +671,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 23024501
     },
     63: {name:"Globeville",
+        imgSource: "assets/images/neighborhoods/globeville.jpg",
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 1,
@@ -616,6 +681,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 21547118
     },
     64: {name:"Wellshire",
+        imgSource: "assets/images/neighborhoods/den_6-min.jpg",
         restaurantCount: 4,
         barCount: 5,
         brewerieCount: 0,
@@ -623,6 +689,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     65: {name:"Central Business District",
+        imgSource: "assets/images/neighborhoods/Central_business-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 10,
@@ -630,6 +697,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 5,
     },
     66: {name:"Indian Creek",
+        imgSource: "assets/images/neighborhoods/den_3-min.jpg",
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 2,
@@ -637,13 +705,15 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 3,
     },
     67: {name:"Skyland",
+        imgSource: "assets/images/neighborhoods/den_5-min.jpg",
         restaurantCount: 14,
         barCount: 3,
         brewerieCount: 0,
         parks: 3,
         hipsterScore: 2,
     },
-    68: {name:"Country Club", 
+    68: {name:"Country Club",
+        imgSource: "assets/images/neighborhoods/country_club-min.jpg", 
         restaurantCount: 25,
         barCount: 8,
         brewerieCount: 0,
@@ -652,7 +722,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Country_Club,_Denver",
         pageId: 19897044
     },
-    69: {name:"City Park", 
+    69: {name:"City Park",
+        imgSource: "assets/images/neighborhoods/city_park-min.jpg", 
         restaurantCount: 25,
         barCount: 18,
         brewerieCount: 2,
@@ -662,6 +733,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 6326701
     },
     70: {name:"Rosedale",
+        imgSource: "assets/images/neighborhoods/den_4-min.jpg",
         restaurantCount: 25,
         barCount: 4,
         brewerieCount: 0,
@@ -669,6 +741,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 2,
     },
     71: {name:"Jefferson Park", 
+        imgSource: "assets/images/neighborhoods/jefferson_park-min.jpg",
         restaurantCount:25, 
         barCount: 19,
         brewerieCount: 6,
@@ -678,6 +751,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 5554275
     },
     72: {name:"Overland",
+        imgSource: "assets/images/neighborhoods/den_5-min.jpg",
         restaurantCount: 25,
         barCount: 15,
         brewerieCount: 8,
@@ -685,6 +759,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 5,
     },
     73: {name:"Civic Center",
+        imgSource: "assets/images/neighborhoods/civic_center-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 7,
@@ -693,7 +768,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         query: "Civic_Center,_Denver",
         pageId: 2237848
     },
-    74: {name:"Sun Valley", 
+    74: {name:"Sun Valley",
+        imgSource: "assets/images/neighborhoods/sun_valley-min.jpg", 
         restaurantCount: 5,
         barCount: 1,
         brewerieCount: 4,
@@ -703,6 +779,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 11490364
     },
     75: {name:"Stapleton", 
+        imgSource: "assets/images/neighborhoods/stapleton-min.jpg",
         restaurantCount: 25,
         barCount: 9,
         brewerieCount: 1,
@@ -712,6 +789,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 23208598
     },
     76: {name:"Dia", 
+        imgSource: "assets/images/neighborhoods/dia-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 0,
@@ -721,6 +799,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 268465
     },
     77: {name:"Auroria",
+        imgSource: "assets/images/neighborhoods/auroria-min.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 0,
@@ -747,3 +826,72 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
 //                   })
 
 
+ $("#initialSubmit").on("click", function() {
+    event.preventDefault();
+    console.log("click working");
+// function that calculates optimal fit
+// adds points to user match..... neighborhoods with the highest match number are the top 3
+    var userMatch = 0;
+    var maxArray = [];
+    // var matchArray = [];
+    // var userHipster =  $("#").val().trim();
+    // var houseMax = $("#").val().trim();-
+    
+    // var userParks = $("#").val().trim();
+    // var nighLife = $("#").val().trim();
+    var userHipster =  4;
+    var houseMax = 350000;
+    var userParks = 3;
+    var nighLife = true;
+
+    for (i=0; i < 78; i++) {
+        userMatch = 0;
+        console.log(massiveObject[i].name);
+        
+        var bars = massiveObject[i].barCount;
+        var restaurants = massiveObject[i].restaurantCount;
+        var averagePrice = biggestObject[i].details.home_price;
+        var breweries =  massiveObject[i].brewerieCount;
+        var parks = massiveObject[i].parks;
+        var hipsterIndex = massiveObject[i].hipsterIndex;
+        var foodBar = (bars + restaurants);
+        // multiplies user input times neighborhood value
+        userMatch += userHipster * userHipster * hipsterIndex ;
+        userMatch += userParks * userParks * parks;
+        
+        if (nighLife) {
+            userMatch += (foodBar) 
+        } else {
+            userMatch -= (foodBar/5)
+        }
+        if (averagePrice > houseMax) {
+            userMatch -= 30;
+        } ;
+        massiveObject[i].userMatch = userMatch;
+        maxArray.push(userMatch);
+        ;
+    }
+    // console.log(massiveObject);
+    console.log(maxArray);
+    var maxMatch = Math.max.apply(null, maxArray);
+    var closeMatch = maxMatch - 5;
+    console.log(maxMatch);
+    for (i=0; i < 78; i++) {
+        var neighborhoodMatch = massiveObject[i].userMatch;
+        if (neighborhoodMatch > closeMatch) {
+            var button = $('<button/>');
+            button.addClass("neighborhoodButtons");
+            button.attr("value",i);
+            button.append(biggestObject[i].details.name);
+            $("#neighborhoodResults").append(button);
+            // print out button that takes to link
+        }
+    }
+ });
+
+ $(document.body).on("click",".neighborhoodButtons", function() {
+    var getI =$(this).attr("value");
+    localStorage.setItem("biggestObjectString", JSON.stringify(biggestObject[getI]));
+
+    window.location.href = "neighborhood.html";
+ });

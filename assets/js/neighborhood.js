@@ -146,7 +146,7 @@ function display(results){
     });
     //markerArray.push(marker);
   }
-
+console.log("yes jsdnkjsnfkj")
 
  $("#initialSubmit").on("click", function() {
     event.preventDefault();
