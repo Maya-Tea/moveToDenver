@@ -8,7 +8,10 @@ var bigObject=JSON.parse(localStorage.getItem("biggestObjectString"));
 var centerCoors=bigObject.details.coor;
 var outlineCoors=bigObject.coorInfo.coors;
 var name= bigObject.details.name;
+var price= bigObject.details.home_price;
 $("#neighborhoodName").html(name);
+
+$(".homePrice").append("$"+price);
  // var long=JSON.parse(localStorage.getItem("long"));
  // var neighborhood=localStorage.getItem("neighborhood");
  console.log(bigObject);
@@ -118,6 +121,7 @@ function displayTopRestaurants(top){
         if(!top[i].price_level){
             top[i].price_level="?";
         }
+    console.log(top[2].name);
     var restItem=$('<div class="topRestaurant">');
     var restName=$('<span class="topName">');
     var restRating=$('<span class="topRate">');
@@ -129,7 +133,7 @@ function displayTopRestaurants(top){
     restName.text("#"+(i+1)+". "+top[i].name+"- ");
     restItem.append(restName, restRating, restPrice, restLoc);
 
-    $("#topRestaurants").append(restItem);
+    $(".topRestaurants").append(restItem);
     }
 }
 

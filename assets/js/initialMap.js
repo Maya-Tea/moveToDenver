@@ -337,15 +337,13 @@ hipsterIndex();
     
     });  
   }
-
+//obj=biggestObject[i];
     function polygonListenerClick(obj, poly) {
     google.maps.event.addListener(poly, 'click', function (event) {
-      //var lat = event.latLng.lat();
-      //var long = event.latLng.lng();
       
-    //localStorage.setItem("neighborhood", obj.Details.name);
+    
     localStorage.setItem("biggestObjectString",JSON.stringify(obj));
-    //localStorage.setItem("long",JSON.stringify(long));
+    
     window.location.href="neighborhood.html";
     }); 
     
