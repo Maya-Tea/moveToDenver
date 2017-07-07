@@ -23,7 +23,7 @@
    var modal = document.getElementById('myModal');
    var rmv_add_Overlay = document.getElementById("removeOverlayButton");
    var restore=document.getElementById("restoreMap");
-   var span = document.getElementsByClassName("close")[0];
+   // var span = document.getElementsByClassName("close")[0];
   
    
 
@@ -60,9 +60,9 @@
    }
 
 
-   span.onclick = function() {
-    modal.style.display = "none";
-  }
+  //  span.onclick = function() {
+  //   modal.style.display = "none";
+  // }
 
 
    function initMap() {

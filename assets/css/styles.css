@@ -181,28 +181,24 @@
           display: none; /* Hidden by default */
           position: absolute; /* Stay in place */
           z-index: 1; /* Sit on top */
-          padding-right:40px;
-          left: 20px;
-          bottom: 0;
+          padding-right:0px;
+          left: 10px;
+          top: 60px;
           width:auto;
+          border-radius:25px; 
          /* width: 300px; *//* Full width */
           height: auto; /* Full height */
           overflow: hidden; /* Enable scroll if needed */
           /*background-color: rgb(0,0,0); /* Fallback color */*/
           /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */*/
       }
-      .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+
       /* Modal Content */
       #modalStuff {
           background-color: rgb(0,0,0);
           color:white;
           margin:0;
-          padding: 10px 20px ;
+          padding: 5px 20px ;
           
           border: 1px solid #888;
           width: 100%;
