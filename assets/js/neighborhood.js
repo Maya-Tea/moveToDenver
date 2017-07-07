@@ -22,9 +22,8 @@ $("#neighborhoodName").html(name);
       zoom: 13,
 
       center: centerCoors
+});
 
-      
-  });
    makePolygon();
    google.maps.Polygon.prototype.getBounds = function() {
     var bounds = new google.maps.LatLngBounds();
@@ -87,34 +86,53 @@ function findPlaces(coor, type){
   }, usePlaceInfo);
 }
 
+var topRated=[];
 
-
-function usePlaceInfo(results, status, pagination) {
+function usePlaceInfo(results, status /*,pagination*/) {
    if (status === google.maps.places.PlacesServiceStatus.OK) {
 
       var numBusinesses=Object.keys(results).length;
       for (var i = 0; i < results.length; i++) {
         placeArray.push(results[i])
     }
+
     console.log(placeArray);
-    createMarker(placeArray);
-    pagination.nextPage();
+    //createMarker(placeArray);
+    //pagination.nextPage();
 
-    console.log(results.length);
+    //console.log(results.length);
+    setTimeout(function(){
+        topRated=placeArray.sort(dynamicSort("rating"));
+        var numToSplice=topRated.length-10;
+        topRated.splice(10,numToSplice);
+        console.log(topRated);
+        
+        displayTopRestaurants(topRated);
+    
+    },1000)
 }
+
 }
-//var markerArray;
-var topRated=[];
-function createMarker(placeArray) {
-    for(var i=0;i<placeArray.length;i++){
-    var placeLoc = placeArray[i].geometry.location;
-    var marker = new google.maps.Marker({
-      map: map,
-      position: placeArray[i].geometry.location
-  });
+function displayTopRestaurants(top){
+    for(var i=0; i<top.length; i++){
+        if(!top[i].price_level){
+            top[i].price_level="?";
+        }
+    var restItem=$('<div class="topRestaurant">');
+    var restName=$('<span class="topName">');
+    var restRating=$('<span class="topRate">');
+    var restPrice=$('<span class="topPrice">');
+    var restLoc=$('<span class="topLocation">');
+    restRating.text("Rating: "+top[i].rating+", ");
+    restPrice.text(" Price Level: "+top[i].price_level+", ");
+    restLoc.text(" Location: "+top[i].vicinity)
+    restName.text("#"+(i+1)+". "+top[i].name+"- ");
+    restItem.append(restName, restRating, restPrice, restLoc);
 
+    $("#topRestaurants").append(restItem);
+    }
+}
 
-   
 
 
   function dynamicSort(property) {
