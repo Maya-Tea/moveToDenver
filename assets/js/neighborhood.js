@@ -4,6 +4,10 @@ var centerCoors=bigObject.details.coor;
 var outlineCoors=bigObject.coorInfo.coors;
 var name= bigObject.details.name;
 var price= bigObject.details.home_price;
+var imgSource=bigObject.details.placeInfo.imgSource;
+console.log(imgSource);
+var img=$('<img class="neighborhoodImg" src='+imgSource+'>');
+$("#neighborhoodImage").append(img);
 $("#neighborhoodName").html(name);
 
 $(".homePrice").append("$"+price);
