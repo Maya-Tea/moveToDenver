@@ -114,24 +114,7 @@ function createMarker(placeArray) {
   });
 
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(placeArray[i].name);
-      infowindow.open(map, this);
-  });
-  
-
-    }
-    findTopPlaces();
    
-}
-function findTopPlaces(){
-  setTimeout(function(){
-    topRated=placeArray.sort(dynamicSort("rating"));
-    var numToSplice=topRated.length-10;
-    topRated.splice(10,numToSplice);
-    console.log(topRated);
-},6000)
-}
 
 
   function dynamicSort(property) {
