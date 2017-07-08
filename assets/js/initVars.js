@@ -969,7 +969,7 @@ database.ref().on("child_added", function(snapshot) {
 
 
       // Change the HTML to reflect
-      $("#trendingComment").append(newComments);
+      $("#trendingComment").prepend(newComments);
       // $("#userName").append(userName);
      
 
