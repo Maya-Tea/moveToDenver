@@ -93,7 +93,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         brewerieCount:1 ,
         parks:1 ,
         hipsterScore:0 ,
-        imgSource: "assets/images/neighborhoods/montbello-min.jpg",
+        imgSource: "assets/images/neighborhoods/motbello-min.jpg",
         query: "Montbello,_Denver",
         pageId: 3219217
     },
@@ -103,7 +103,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         brewerieCount:0 ,
         parks: 0,
         hipsterScore:0 ,
-        imgSource: "assets/images/neighborhoods/montbello-min.jpg"
+        imgSource: "assets/images/neighborhoods/gateway.jpg"
     },
     2: { name:"Hampden",
         restaurantCount:15 ,
@@ -130,7 +130,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore:3 ,
         query: "Capitol_Hill_(Denver)",
         pageId: 2084095,
-        imgSource: "assets/images/neighborhoods/capital_hill-min.jpg"
+        imgSource: "assets/images/neighborhoods/capitol_hill-min.jpg"
 
     },
     5: {name:"Hampden South",
@@ -373,7 +373,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         hipsterScore: 1,
     },
     31: {name:"Hilltop",
-    imgSource: "assets/images/neighborhoods/hiltop-min.JPG",
+    imgSource: "assets/images/neighborhoods/hilltop-min.JPG",
         restaurantCount: 9,
         barCount: 0,
         brewerieCount: 0,
@@ -429,7 +429,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 22524481
     },
     37: {name:"Washington Park", 
-        imgSource: "assets/images/neighborhoods/wasington_park-min.JPG",
+        imgSource: "assets/images/neighborhoods/washington_park-min.JPG",
         restaurantCount: 25,
         barCount: 12,
         brewerieCount: 0,
@@ -439,7 +439,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 3347175
     },
     38: {name:"Washington Park West",
-        imgSource: "assets/images/neighborhoods/wasington_park-min.JPG",
+        imgSource: "assets/images/neighborhoods/washParkWest.JPG",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
@@ -513,7 +513,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 23129884
     },
     46: {name:"North Capitol Hill", 
-        imgSource: "assets/images/neighborhoods/capital_hill-min.jpg",
+        imgSource: "assets/images/neighborhoods/northCapHill.jpg",
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 9,
@@ -523,7 +523,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 21137433
     },
     47: {name:"Chery Creek",
-        imgSource: "assets/images/neighborhoods/Cherry_Creek-min.jpg", 
+        imgSource: "assets/images/neighborhoods/Cherry-Creek-min.jpg", 
         restaurantCount: 25,
         barCount: 25,
         brewerieCount: 1,
@@ -671,7 +671,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         pageId: 23024501
     },
     63: {name:"Globeville",
-        imgSource: "assets/images/neighborhoods/globeville.jpg",
+        imgSource: "assets/images/neighborhoods/globeville-min.jpg",
         restaurantCount: 7,
         barCount: 4,
         brewerieCount: 1,
