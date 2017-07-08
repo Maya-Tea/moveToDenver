@@ -828,25 +828,39 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
 
  $("#initialSubmit").on("click", function() {
     event.preventDefault();
+    $("#neighborhoodResults").html("");
+    $("#housePrice").html();
+
     console.log("click working");
 // function that calculates optimal fit
 // adds points to user match..... neighborhoods with the highest match number are the top 3
     var userMatch = 0;
     var maxArray = [];
-    // var matchArray = [];
-    // var userHipster =  $("#").val().trim();
-    // var houseMax = $("#").val().trim();-
     
-    // var userParks = $("#").val().trim();
-    // var nighLife = $("#").val().trim();
-    var userHipster =  4;
-    var houseMax = 350000;
-    var userParks = 3;
-    var nighLife = true;
+    var userHipster = $("input[name='hipster']:checked").val();
+    var houseMax = $("#housePrice").val().trim();
+    var userParks = $("input[name='parks']:checked").val();
+    var night = $("input[name='night']:checked").val();
+    // var userHipster =  4;
+    console.log(userHipster);
+    console.log(houseMax);
+    console.log(userParks);
+    console.log(night);
+
+    var nightLife = false;
+    if (night > 0) {
+        var nightLife = true;
+    } else {
+       var nightLife = false;
+    }
+    console.log(nightLife);
+    // var houseMax = 350000;
+    // var userParks = 3;
+    // var nighLife = true;
 
     for (i=0; i < 78; i++) {
         userMatch = 0;
-        console.log(massiveObject[i].name);
+        // console.log(massiveObject[i].name);
         
         var bars = massiveObject[i].barCount;
         var restaurants = massiveObject[i].restaurantCount;
@@ -859,7 +873,7 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         userMatch += userHipster * userHipster * hipsterIndex ;
         userMatch += userParks * userParks * parks;
         
-        if (nighLife) {
+        if (nightLife) {
             userMatch += (foodBar) 
         } else {
             userMatch -= (foodBar/5)
@@ -872,10 +886,10 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
         ;
     }
     // console.log(massiveObject);
-    console.log(maxArray);
+    // console.log(maxArray);
     var maxMatch = Math.max.apply(null, maxArray);
     var closeMatch = maxMatch - 5;
-    console.log(maxMatch);
+    // console.log(maxMatch);
     for (i=0; i < 78; i++) {
         var neighborhoodMatch = massiveObject[i].userMatch;
         if (neighborhoodMatch > closeMatch) {

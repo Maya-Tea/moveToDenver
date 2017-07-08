@@ -52,69 +52,47 @@
         <div class="well">
           <h3> Submit your Real Estate Preferences </h3>
             <p> Fill out the dropdowns and submit, and we will tell you what your perfect neghborhood match is. </p>
-          <form> 
-            
-              <div class= "hipsterScore"> 
-               <h5> What is the hipster density you are looking for in your next neighborhood</h5>
-               <div class="dropdown">
-              <button class="dropbtn">Hipster Score</button>
-              <div class="dropdown-content">
-              <a href="#">0</a>
-              <a href="#">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              </div>
-              </div>
-               <!--<input type="checkbox" id="hipster1">  1-3
-              <br>
-              <input type="checkbox" id="hipster2">  4-6
-              <br>
-              <input type="checkbox" id="hipster3">  7-10-->
-            </div>
 
-            <br>
-             
 
-             <div class="housingPrices">
-              <h5> How many millions of dollars are you looking to spend? </h5>
-              <div class="dropdown">
-              <button class="dropbtn"> Housing Price </button>
-              <div class="dropdown-content">
-              <a href="#"> Half A Million </a>
-              <a href="#"> One Million </a>
-              <a href="#"> No Limit </a>
-              </div>
-              </div>
-              <!--<input type="checkbox" id="housing1">  1-3
+           <form action="/action_page.php">
+            <fieldset>
+              <legend>Find your perfect neighborhood!:</legend>
               <br>
-              <input type="checkbox" id="housing2">  4-6
+               Whats your maximun house price?: (ex: 350000)<br>
+              <input type="text" name="firstname" id="housePrice" placeholder="350000">
               <br>
-              <input type="checkbox" id="housing3">  7-10-->
-            </div>
-
-            <br>
-
-            <div class= "NightLife">
-              <h5> Are you a night owl or a shut in? </h5>
-              <div class="dropdown">
-              <button class="dropbtn"> Nighlife </button>
-              <div class="dropdown-content">
-              <a href="#"> Crickets</a>
-              <a href="#"> Thumping Bass </a>
+              <br>
+              <fieldset id="parkInterest">
+                Interest in nearby park??<br> 
+                <input type="radio" name="parks" value="0" checked> Hate them<br>
+                <input type="radio" name="parks" value="2.8"> They're alright<br>
+                <input type="radio" name="parks" value="5">Love them <br>
+              </fieldset>
               
-              </div>
-              </div>
-            
-            </div>
-            <br>
-            <button class="submit btn-sm btn-warning" id="initialSubmit"> Submit </button> 
+              <br>
+               <fieldset id="hipsterInterest">
+                Interest in hipsters??<br>
+                <input type="radio" name="hipster" value="0" checked> Hate them<br>
+                <input type="radio" name="hipster" value="2.8"> They're alright<br>
+                <input type="radio" name="hipster" value="5">Love them <br>
+              </fieldset>
+              <br>
+              <fieldset id="nighlifeInterest">
+                Nightlife interest??<br>
+                <input type="radio" name="night" value="0" checked> Nothing but crikets<br>
+               
+                <input type="radio" name="night" value="5"> Thumping Base <br>
+              </fieldset>
+              <br>
+              <input type="submit" value="Submit" id="initialSubmit">
+            </fieldset> 
           </form>
+           
+          <div id="neighborhoodResults">
         </div>
         </div>
          
-        <div id="neighborhoodResults" class="results"> 
+        <!-- <div id="neighborhoodResults" class="results">  -->
           <h3> Your Neighborhood Hipster Match </h3>
         </div>
           <!-- <div class="form row col-lg-2 col-xs-12">
