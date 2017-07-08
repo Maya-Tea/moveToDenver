@@ -16,13 +16,17 @@
 
   <div class = "wrapper">
      <div class= "header"> 
-      <h1 align="center" >Thinking of Calling Denver Home?</h1>
-      <p><b>You need to know exactly four things when moving to Denver: Price, Nightlife, Distance to Marijuana Dispenseries, and A Hipster Index. Luckliy, this site has all of that infomation right here at your fingertips.</b></p>
-      <h3> Damn, these heat maps are slick as fork!</h3>
-      <button id="removeOverlayButton">Remove Overlay</button>
-      <button onclick="toggleHeatmap()" id="hipHeatMapButton">Turn On Hipster Heatmap</button>
-      <button onclick="toggleWeedmap()" id="weedHeatMapButton">Turn On 420 Heatmap</button>
-      </div>
+      <h1>Thinking of Calling Denver Home?</h1>
+   
+      <br>
+      <br> 
+      <br>
+      <br>   
+    
+      <button class="mapOptions" id="removeOverlayButton">Remove Overlay</button>
+      <button class="mapOptions" onclick="toggleHeatmap()" id="hipHeatMapButton">Turn On Hipster Heatmap</button>
+      <button class="mapOptions" onclick="toggleWeedmap()" id="weedHeatMapButton">Turn On 420 Heatmap</button>
+    </div>
 
       <div id="mapDiv" class="bigMap" >
         <div id="myModal" >
@@ -36,21 +40,14 @@
       </div>
 
       <div class= "input">
-        <H3> Pick a Neighborhood</H3>
+      <p id="funny"><i>You need to know exactly five things when moving to Denver: Price, Nightlife, Distance to Marijuana Dispenseries, Parks and A Hipster Index. Luckliy, this site has all of that infomation right here at your fingertips.</i></p>
+        <H2> Pick a Neighborhood</H2>
           <p> Click on a neighborhood on the map, and we will give you all the important information on that neighborhood </p>
-        <!--<div id="floating-panel">
-          <input id="address" type="textbox" value="Denver, CO">
-          <input id="submit" type="button" value="Geocode">
-        </div>-->
-        <br>
-        <H3>Or</H3>
-        <br>
-          <!-- <div class= "row">
-          <div class= "col-lg-6 col-xs-12">
-          <div id="map">
-          </div> -->
+       
+        <H3 id="or" align="center">OR</H3>
+     
         <div class="well">
-          <h3> Submit your Real Estate Preferences </h3>
+          <h2> Submit your Real Estate Preferences </h2>
             <p> Fill out the dropdowns and submit, and we will tell you what your perfect neghborhood match is. </p>
 
 
@@ -91,8 +88,7 @@
           <div id="neighborhoodResults">
         </div>
         </div>
-         
-        <!-- <div id="neighborhoodResults" class="results">  -->
+        
           <h3> Your Neighborhood Hipster Match </h3>
         </div>
           <!-- <div class="form row col-lg-2 col-xs-12">
@@ -115,7 +111,8 @@
              <br>
              <div class="form-group">
                <label for="role">Leave A Comment </label>
-               <input type="text" class="form-control" id="commentInput" placeholder="I love the Hipster Heat Map!">
+               <textarea rows="4" cols="40" class="form-control" id="commentInput" placeholder="I love the Hipster Heat Map!">
+               </textarea>
              </div>
              
        
@@ -126,7 +123,7 @@
         </div>
      
       </div>
-             <div id="topRestuarants"><h2>Top Restuarants</h2></div>
+            
 
 <div id="myModal2" class="modal2">
 

@@ -1,5 +1,7 @@
 
-
+body{
+  background-color:#004400;
+}
 
          
     .wrapper {
@@ -8,55 +10,84 @@
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
   }
-
+  h1{
+    text-align: left;
+    margin-left:20px;
+  }
   .header { 
     background-color: hsla(60, 100%, 50%, 1);
   /*border-style: solid;*/
   grid-column: 1 / 5;
-  grid-row: 1 / 2;
+  grid-row: 1 / 3;
+  background-image: url("../images/denver_main.jpg");
+  background-size: 100%;
 }
-/*.levelOfHipsters{
+#funny{
+  color:black;
+  font-size:1.2em; 
 
-    max-width: 100%;
-    height: 200px;
-        grid-column: 3 / 5;
-        grid-row: 1 / 2;
-        background-color:red;
-        position: relative;
-        overflow: hidden;
-    }*/
+}
+#removeOverlayButton{
+  margin-left: 20px;
+}
+button, #initialSubmit{
+  margin:2px;
 
-     /*{
-        background-color: red;
-        z-index: 10;
-        
-        
-    }*/
+  border-radius:25px;
+  font-weight: bold;
+  padding:6px;
+}
+/*.mapOptions{
+  margin-top:20px;
+}*/
+#damn{
+  color:red;
+}
 
+
+button:hover{
+  cursor: pointer;
+  
+}
+/*#or{
+  text-align: center;
+}*/
 
   .bigMap { 
   /*border-style: solid;*/
   grid-column: 1 / 3;
-  grid-row: 2 / 6;
+  grid-row: 3 / 7;
 }
 
 .input {
-  background-color: hsla(240, 80%, 70%, 1);
+  background-color: #478E75;
   /*border-style: solid;*/
   grid-column: 3 / 5;
-  grid-row: 2 / 6;
+  grid-row: 3 / 7;
 }
-.results {
-  background-color: hsla(60, 100%, 50%, 1);
-  /*border-style: solid;*/
-  grid-column: 1 / 5;
-  grid-row: 6 / 7;
-}
+.emailLogIn {
 
-.comments {
-  background-color: blue;
+  background-color: #8ABD5F;
   /*border-style: solid;*/
-  grid-column: 1 / 5;
+  grid-column: 1 / 2;
+  grid-row: 7 / 8;
+}
+.emailLogIn{
+  padding:20px;
+
+}
+.newComments{
+  padding:20px;
+}
+/*B9E397 8ABD5F 478E75*/
+h4{
+  text-decoration: underline;
+}
+.comments {
+  padding:5px 20px;
+  background-color: #B9E397;
+  /*border-style: solid;*/
+  grid-column: 2 / 5;
   grid-row: 7 / 8;
 }
 .neighborhoodMap {
@@ -65,9 +96,11 @@
 }
 
 .neighborhoodBox {
-  background-color: hsla(60, 100%, 50%, 1);
+  padding: 5px 20px;
+  background-color: #B9E397;
   grid-column: 1 / 5;
-  grid-row: 6 / 8 ;
+  grid-row: 6 / 7 ;
+  border-bottom: 4px solid hsla(60, 100%, 50%, 1);
 }
 
 .neighborhoodImage {
@@ -77,24 +110,37 @@
 
 }
 
+hr {
+    display: block;
+    height: 1px;
+    
+    border-top: 1px solid hsla(60, 100%, 50%, 1);
+}
+
 .averageHomePrice {
-  background-color: hsla(60, 100%, 50%, 1);
+  background-color: #8ABD5F;
   grid-column: 3 / 5;
   grid-row: 4 / 6 ;
 
 }
+h1{
+  font-size:2.6em;
+}
 
 .neighborhoodName {
-  background-color: hsla(60, 100%, 50%, 1);
+
   grid-column: 1 / 5;
   grid-row: 1 / 2 ;
+  background-image: url("../images/denver_main.jpg")
 }
 
 .topRestaurants{
-  background-color: hsla(60, 100%, 50%, 1);
+  padding:0px 20px;
+  background-color: #478E75;
   grid-column: 1 / 5;
-  grid-row:  8 / 10 ;
+  grid-row:  7 / 9 ;
   line-height: 150%;
+  
 }
 
 /* Dropdown Button */
@@ -185,8 +231,8 @@
         width:100%;
       }
       .homePrice{
-        text-align = "center"
-        font-size: 40;
+        text-align: center;
+        font-size: 40px;
       }
       .topName{
         font-weight: bold;
