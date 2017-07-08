@@ -1,16 +1,16 @@
 
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBBoyZvc0BR5QIoIoBGD7wepn5wHsZHiNs",
-  authDomain: "cool-f0a13.firebaseapp.com",
-  databaseURL: "https://cool-f0a13.firebaseio.com",
-  projectId: "cool-f0a13",
-  storageBucket: "cool-f0a13.appspot.com",
-  messagingSenderId: "633106733016"
-  };
-  firebase.initializeApp(config);
+  // var config = {
+  //   apiKey: "AIzaSyBBoyZvc0BR5QIoIoBGD7wepn5wHsZHiNs",
+  // authDomain: "cool-f0a13.firebaseapp.com",
+  // databaseURL: "https://cool-f0a13.firebaseio.com",
+  // projectId: "cool-f0a13",
+  // storageBucket: "cool-f0a13.appspot.com",
+  // messagingSenderId: "633106733016"
+  // };
+  // firebase.initializeApp(config);
 
-  var database = firebase.database();
+  // var database = firebase.database();
    // var coorRef = firebase.database().ref("coor");
 
 
@@ -465,41 +465,41 @@ function ZillowAPI () {
     });
 }
 
-function ValidateEmail(mail)  {  
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
- {  
-  return (true)  
-}  
-alert("You have entered an invalid email address!")  
-return (false)  
-}  
+// function ValidateEmail(mail)  {  
+//  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
+//  {  
+//   return (true)  
+// }  
+// alert("You have entered an invalid email address!")  
+// return (false)  
+// }  
 
-$("#validate").on("click", function () {
-  ValidateEmail();
+// $("#validate").on("click", function () {
+//   ValidateEmail();
 
-  $("#email").text("");
+//   $("#email").text("");
   
-      //When firebase is working...we can push to database (could use local storage too), this can be a way to have people leave comments
+//       //When firebase is working...we can push to database (could use local storage too), this can be a way to have people leave comments
       
-      var modal = document.getElementById('emailModal');
-      var span = document.getElementsByClassName("close")[0];
+//       var modal = document.getElementById('emailModal');
+//       var span = document.getElementsByClassName("close")[0];
 
-      modal.style.display = "block";
+//       modal.style.display = "block";
 
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
+//       span.onclick = function() {
+//         modal.style.display = "none";
+//       }
 
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-
-
+//       window.onclick = function(event) {
+//         if (event.target == modal) {
+//           modal.style.display = "none";
+//         }
+//       }
 
 
-    })
+
+
+    // })
 
 $("#initialSubmit").on("click", function() {
     event.preventDefault();
