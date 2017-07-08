@@ -80,7 +80,7 @@
 .averageHomePrice {
   background-color: hsla(60, 100%, 50%, 1);
   grid-column: 3 / 5;
-  grid-row: 6 / 8 ;
+  grid-row: 4 / 6 ;
 
 }
 
@@ -93,7 +93,7 @@
 .topRestaurants{
   background-color: hsla(60, 100%, 50%, 1);
   grid-column: 3 / 5;
-  grid-row:  4 / 6 ;
+  grid-row:  6 / 8 ;
 }
 
 /* Dropdown Button */
