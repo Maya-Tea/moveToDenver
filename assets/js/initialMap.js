@@ -483,41 +483,41 @@ function ZillowAPI () {
     });
 }
 
-function ValidateEmail(mail)  {  
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
- {  
-  return (true)  
-}  
-alert("You have entered an invalid email address!")  
-return (false)  
-}  
+// function ValidateEmail(mail)  {  
+//  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
+//  {  
+//   return (true)  
+// }  
+// alert("You have entered an invalid email address!")  
+// return (false)  
+// }  
 
-$("#validate").on("click", function () {
-  ValidateEmail();
+// $("#validate").on("click", function () {
+//   ValidateEmail();
 
-  $("#email").text("");
+//   $("#email").text("");
   
-      //When firebase is working...we can push to database (could use local storage too), this can be a way to have people leave comments
+//       //When firebase is working...we can push to database (could use local storage too), this can be a way to have people leave comments
       
-      var modal = document.getElementById('emailModal');
-      var span = document.getElementsByClassName("close")[0];
+//       var modal = document.getElementById('emailModal');
+//       var span = document.getElementsByClassName("close")[0];
 
-      modal.style.display = "block";
+//       modal.style.display = "block";
 
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
+//       span.onclick = function() {
+//         modal.style.display = "none";
+//       }
 
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-
-
+//       window.onclick = function(event) {
+//         if (event.target == modal) {
+//           modal.style.display = "none";
+//         }
+//       }
 
 
-    })
+
+
+    // })
 
 $("#initialSubmit").on("click", function() {
     event.preventDefault();
@@ -572,3 +572,87 @@ var matchArray = [];
     }
 });
  
+
+
+
+
+// var name = "";
+// var comments = "";
+
+// $("#commentSubmit").on("click", function(event) {
+//   event.preventDefault();
+//       // ValidateEmail();
+//       // Grabbed values from comment box
+//       name = $("#emailId").val();
+//       comments = $("#commentInput").val();
+     
+//       console.log("pushed to Firebase");
+      
+//       database.ref().push({
+//         name: name,
+//         comments: comments
+        
+
+//       });
+//       $("#emailId").empty();
+//       $("#commentInput").empty();
+      
+//   }); 
+
+// database.ref().on("child_added", function(snapshot) {
+//   var sv = snapshot.val();
+
+      
+//       // var userName = $("<div>" + sv.name +  "</div>");
+//       var newComments = $("<div class='newComment'>" + sv.comments + "submitted by: " + sv.name + "</div>");
+    
+
+
+//       // Change the HTML to reflect
+//       $("#trendingComment").append(newComments);
+//       // $("#userName").append(userName);
+     
+
+//  }, function(errorObject) {
+//   console.log("Errors handled: " + errorObject.code);
+//  });
+
+// function ValidateEmail(mail)  {  
+//  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
+//  {  
+
+//   return (true)  
+// }  
+// alert("You have entered an invalid email address!")  
+// return (false)  
+// }  
+
+// $("#validate").on("click", function () {
+//   event.preventDefault();
+//   // var valid=ValidateEmail();
+//   console.log("hi");
+//   // if(valid){
+
+//   //   //$("#commentSubmit").animate({opacity: "1"});
+//   //   $("#commentSubmit").css('opacity','1');
+//   // }
+// //$("#commentSubmit").animate({opacity: "1"})
+//   $("#email").text("");
+  
+//       //When firebase is working...we can push to database (could use local storage too), this can be a way to have people leave comments
+      
+//       var modal = document.getElementById('emailModal');
+//       var span = document.getElementsByClassName("close")[0];
+
+//       modal.style.display = "block";
+
+//       span.onclick = function() {
+
+//         modal.style.display = "none";
+//       }
+
+//       window.onclick = function(event) {
+//         if (event.target == modal) {
+//           modal.style.display = "none";
+//         }}})
+      

@@ -745,5 +745,103 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
                 
 //                 $("#neighborhoodInfo").append(response.query.pages[bigObject.details.placeInfo.pageId].extract);
 //                   })
+var config = {
+    apiKey: "AIzaSyBBoyZvc0BR5QIoIoBGD7wepn5wHsZHiNs",
+  authDomain: "cool-f0a13.firebaseapp.com",
+  databaseURL: "https://cool-f0a13.firebaseio.com",
+  projectId: "cool-f0a13",
+  storageBucket: "cool-f0a13.appspot.com",
+  messagingSenderId: "633106733016"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
 
 
+var name = "";
+var comments = "";
+
+$("#commentSubmit").on("click", function(event) {
+  event.preventDefault();
+      ValidateEmail();
+    if (ValidateEmail() === true) {
+
+        name = $("#emailId").val();
+      comments = $("#commentInput").val();
+     
+      console.log("pushed to Firebase");
+      
+      database.ref().push({
+        name: name,
+        comments: comments
+        
+
+      });
+        console.log("true email")
+    }
+    else {
+        console.log("modal")
+// Get the modal
+// Get the modal
+var modal2 = document.getElementById('myModal2');
+
+// Get the button that opens the modal
+var btn = document.getElementById("modal2");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close2")[0];
+
+// When the user clicks on the button, open the modal 
+
+    modal2.style.display = "block";
+
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+}
+    }
+      
+      $("#emailId").empty();
+      $("#commentInput").empty();
+      
+  }); 
+
+database.ref().on("child_added", function(snapshot) {
+  var sv = snapshot.val();
+
+      
+      // var userName = $("<div>" + sv.name +  "</div>");
+      var newComments = $("<div class='newComment'> " + sv.comments + " <i>submitted by</i>: " + sv.name + "</div>");
+    
+
+
+      // Change the HTML to reflect
+      $("#trendingComment").append(newComments);
+      // $("#userName").append(userName);
+     
+
+ }, function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+ });
+
+function ValidateEmail(mail)  {  
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#emailId").val()))  
+ {  
+    
+  return (true)  
+}  
+
+
+return (false)  
+}  
+
+
+      
