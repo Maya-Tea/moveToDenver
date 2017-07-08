@@ -125,6 +125,7 @@ hr {
 }
 h1{
   font-size:2.6em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .neighborhoodName {
@@ -135,7 +136,7 @@ h1{
 }
 
 .topRestaurants{
-  padding:0px 20px;
+  padding-left:0px 20px;
   background-color: #478E75;
   grid-column: 1 / 5;
   grid-row:  7 / 9 ;

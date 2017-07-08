@@ -1,18 +1,4 @@
 
-  // Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyBBoyZvc0BR5QIoIoBGD7wepn5wHsZHiNs",
-  // authDomain: "cool-f0a13.firebaseapp.com",
-  // databaseURL: "https://cool-f0a13.firebaseio.com",
-  // projectId: "cool-f0a13",
-  // storageBucket: "cool-f0a13.appspot.com",
-  // messagingSenderId: "633106733016"
-  // };
-  // firebase.initializeApp(config);
-
-  // var database = firebase.database();
-   // var coorRef = firebase.database().ref("coor");
-
 
    var loadingGif=$("<img src='assets/images/loading.gif' id='loadingGif' class='loading'>");
    loadingGif.css('position','absolute');
@@ -64,7 +50,7 @@
    function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
-      center: denver
+      center: {lat:39.63372087946617,lng: -104.93865966796875}
       
     });
 
