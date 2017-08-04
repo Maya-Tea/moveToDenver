@@ -17,44 +17,62 @@
 
   <div class = "wrapper">
      <div class= "header"> 
-      <h1>Thinking of Calling Denver Home?</h1>
+      <h1 id="pageTittle">Thinking of Calling Denver Home?</h1>
    
       <br>
-      <br> 
-      <br>
-      <br>   
+      <br> <br><br><br><br>
+     
     
-      <button class="mapOptions" id="removeOverlayButton">Remove Overlay</button>
-      <button class="mapOptions" onclick="toggleHeatmap()" id="hipHeatMapButton">Turn On Hipster Heatmap</button>
-      <button class="mapOptions" onclick="toggleWeedmap()" id="weedHeatMapButton">Turn On 420 Heatmap</button>
+      
     </div>
 
+
+<div id="mapButtons">
+              <button class="mapOptions" id="removeOverlayButton">Remove Overlay</button>
+              
+              <button class="mapOptions" onclick="toggleHeatmap()" id="hipHeatMapButton">Turn On Hipster Heatmap</button>
+             
+              <button class="mapOptions" onclick="toggleWeedmap()" id="weedHeatMapButton">Turn On 420 Heatmap</button> 
+</div>
       <div id="mapDiv" class="bigMap" >
+        
         <div id="myModal" >
           <div id="modalStuff">
+
             <!-- <span class="close">&times;</span> -->
             <p id="modalText"></p>
           </div>
         </div>
         <div id="map">
+
         </div>
       </div>
 
-      <div class= "input">
+      <div class="newResults" style="display: none;" id="neighborhoodResults">
+        
+      </div>
+
+      <div class= "input">  
       <p id="funny"><i>You need to know exactly five things when moving to Denver: Price, Nightlife, Distance to Marijuana Dispenseries, Parks and A Hipster Index. Luckliy, this site has all of that infomation right here at your fingertips.</i></p>
-        <H2> Pick a Neighborhood</H2>
-          <p> Click on a neighborhood on the map, and we will give you all the important information on that neighborhood </p>
+      <br>
+      <H2> Pick a Neighborhood</H2>
+      <p> Click on a neighborhood on the map, and we will give you all the important information on that neighborhood 
+      </p>
+
+        
        
         <H3 id="or" align="center">OR</H3>
      
         <div class="well">
           <h2> Submit your Real Estate Preferences </h2>
-            <p> Fill out the dropdowns and submit, and we will tell you what your perfect neghborhood match is. </p>
-
-
+          <p> Fill out the dropdowns and submit, and we will tell you what your perfect neghborhood match is. </p>
+          <br>
+          <br>
+              
            <form action="/action_page.php">
             <fieldset>
               <legend>Find your perfect neighborhood!:</legend>
+              <br>
               <br>
                Whats your maximun house price?: (ex: 350000)<br>
               <input type="text" name="firstname" id="housePrice" placeholder="350000">
@@ -86,11 +104,10 @@
             </fieldset> 
           </form>
            
-          <div id="neighborhoodResults">
-        </div>
+         
         </div>
         
-          <h3> Your Neighborhood Hipster Match </h3>
+         
         </div>
           <!-- <div class="form row col-lg-2 col-xs-12">
           <label for="userId"> User: </label>
@@ -99,27 +116,30 @@
           <input id="emailId" class= "input" type="textbox">
 
           </div> -->
-        <div class="comments">
+      <div class="comments">
         <h4> Trending Comments </h4>
         <div id="trendingComment"> </div>
-        </div>
+      </div>
+
+
       <div class="panel-body">
            <form>
              <div class= "emailLogIn">
-          <label> Validate Your email: </label>
-            <form id="email">
-            <input type="email" id="emailId">
-             <br>
-             <div class="form-group">
-               <label for="role">Leave A Comment </label>
-               <textarea rows="4" cols="40" class="form-control" id="commentInput" placeholder="I love the Hipster Heat Map!">
-               </textarea>
-             </div>
-             
-       
-             <button type="submit" class="btn btn-default center-block" id="commentSubmit">Submit</button>
-           </form>
-         </div>
+              <label> Validate Your email: </label>
+              <br>
+              <form id="email">
+                <input type="email" id="emailId">
+                <br>
+                <div class="form-group">
+                  <label for="role">Leave A Comment </label> <br>
+                  <textarea rows="4" cols="40" class="form-control" id="commentInput" placeholder="I love the Hipster Heat Map!">
+                  </textarea>
+                </div>
+               
+         
+                <button type="submit" class="btn btn-default center-block" id="commentSubmit">Submit</button>
+              </form>
+            </div>
         
         </div>
      
