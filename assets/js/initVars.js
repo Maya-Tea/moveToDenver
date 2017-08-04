@@ -814,6 +814,8 @@ var realCoorArray=[{name:"Hale",coor:[39.74026036463129, -104.94097709655762, 39
 
  $("#initialSubmit").on("click", function() {
     event.preventDefault();
+    $(".newResults").show();
+    $("#neighborhoodResults").show();
     $("#neighborhoodResults").html("");
     $("#housePrice").html();
 
